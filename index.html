@@ -4,114 +4,35 @@
   <meta charset="UTF-8">
   <title>CozyKnots</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff0f5;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #ffb6c1;
-      padding: 1.5rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: #fff0f5; margin: 0; padding: 2rem; text-align: center; color: #333; }
+    nav a { margin: 0 1rem; color: #ff69b4; text-decoration: none; font-weight: bold; }
     .product {
-      margin: 1rem auto;
       background: #fff;
+      margin: 1rem auto;
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 0 8px #ccc;
       max-width: 400px;
     }
-    .order-section button {
-      background: #ff69b4;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .order-section button:hover {
-      background: #ff1493;
-    }
-    footer {
-      background: #f8c3d4;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CozyKnots</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#products">Shop</a>
-      <a href="#contact">Contact</a>
-      <a href="#order">Order</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#products">Shop</a>
+    <a href="contact.html">Contact</a>
+    <a href="order.html">Order</a>
+  </nav>
 
-  <main>
-    <section id="home" class="intro">
-      <h2>Welcome to CozyKnots!</h2>
-      <p>Handmade crochet clothes & cozy accessories stitched with love, sass, and probably too much yarn. Yarn better believe it! 🧶💖</p>
-    </section>
+  <h1>Welcome to CozyKnots!</h1>
+  <p>Handmade crochet clothes & cozy accessories stitched with love, sass, and probably too much yarn. 🧶💖</p>
 
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We’re CozyKnots — a small crochet business passionate about turning yarn into joy. From clothes to plushies, everything is handmade with care and creativity.</p>
-    </section>
-
-    <section id="products">
-      <h2>Our Products</h2>
-      <div class="product"><strong>💐 Flower Bouquet Blanket</strong><br>Wrap yourself in soft, blooming coziness.</div>
-      <div class="product"><strong>👜 Flower Bouquet String Bag</strong><br>A cute, sturdy bag that blooms with style!</div>
-      <div class="product"><strong>👕 Crochet Mesh Tops</strong><br>Light, breathable, and effortlessly cute.</div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email us at <a href="mailto:shabandri.k6@gmail.com">shabandri.k6@gmail.com</a><br>
-         Or DM us on Instagram <a href="https://www.instagram.com/cozyknots_2" target="_blank">@cozyknots_2</a></p>
-    </section>
-
-    <section id="order" class="order-section">
-      <h2>Want to Order?</h2>
-      <p>Click the button below to message us directly and start your custom order!</p>
-      <button onclick="window.location.href='mailto:shabandri.k6@gmail.com'">Order Now</button>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 CozyKnots. All rights reserved.</p>
-  </footer>
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product"><strong>💐 Flower Bouquet Blanket</strong><br>Wrap yourself in soft, blooming coziness.</div>
+    <div class="product"><strong>👜 Flower Bouquet String Bag</strong><br>A cute, sturdy bag that blooms with style!</div>
+    <div class="product"><strong>👕 Crochet Mesh Tops</strong><br>Light, breathable, and effortlessly cute.</div>
+  </section>
 </body>
 </html>
-
