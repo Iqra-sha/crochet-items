@@ -56,10 +56,13 @@
       border-radius: 16px;
       box-shadow: 0 8px 12px rgba(0,0,0,0.08);
       max-width: 420px;
-      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s, transform 1s ease-in-out;
     }
-    .product:hover {
-      transform: scale(1.02);
+    .product.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     footer {
       background: #d8e2dc;
@@ -99,5 +102,17 @@
   <footer>
     <p>&copy; 2025 CozyKnots with 💕</p>
   </footer>
+
+  <script>
+    // JavaScript to trigger the sliding effect for products
+    window.addEventListener("load", function() {
+      const products = document.querySelectorAll('.product');
+      products.forEach((product, index) => {
+        setTimeout(() => {
+          product.classList.add('visible');
+        }, 300 * index); // Delay each product's animation slightly for a staggered effect
+      });
+    });
+  </script>
 </body>
 </html>
