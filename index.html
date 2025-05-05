@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Crochet Creations</title>
+  <title>CozyKnots</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #fff0f5;
@@ -15,6 +18,9 @@
       background: #ffb6c1;
       padding: 1.5rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav a {
       margin: 0 1rem;
@@ -22,22 +28,35 @@
       text-decoration: none;
       font-weight: bold;
     }
+    nav a:hover {
+      text-decoration: underline;
+    }
     main {
       padding: 2rem;
       text-align: center;
     }
-    .intro {
-      margin-bottom: 2rem;
+    section {
+      margin-bottom: 3rem;
     }
     .product {
-      margin: 1rem 0;
+      margin: 1rem auto;
       background: #fff;
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 0 8px #ccc;
       max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+    }
+    .order-section button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .order-section button:hover {
+      background: #ff1493;
     }
     footer {
       background: #f8c3d4;
@@ -49,30 +68,50 @@
 </head>
 <body>
   <header>
-    <h1>Crochet Creations</h1>
+    <h1>CozyKnots</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#order">Order</a>
     </nav>
   </header>
 
   <main>
-    <section class="intro">
-      <h2>Welcome!</h2>
+    <section id="home" class="intro">
+      <h2>Welcome to CozyKnots!</h2>
       <p>Handmade crochet clothes & cozy accessories stitched with love, sass, and probably too much yarn. Yarn better believe it! 🧶💖</p>
     </section>
 
-    <section class="products">
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We’re CozyKnots — a small crochet business passionate about turning yarn into joy. From clothes to plushies, everything is handmade with care and creativity.</p>
+    </section>
+
+    <section id="products">
+      <h2>Our Products</h2>
       <div class="product"><strong>💐 Flower Bouquet Blanket</strong><br>Wrap yourself in soft, blooming coziness.</div>
-      <div class="product"><strong>👜 Flower Bouquet String Bag</strong><br>Carry your things with handmade charm.</div>
+      <div class="product"><strong>👜 Flower Bouquet String Bag</strong><br>A cute, sturdy bag that blooms with style!</div>
       <div class="product"><strong>👕 Crochet Mesh Tops</strong><br>Light, breathable, and effortlessly cute.</div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email us at <a href="mailto:shabandri.k6@gmail.com">shabandri.k6@gmail.com</a><br>
+         Or DM us on Instagram <a href="https://www.instagram.com/cozyknots_2" target="_blank">@cozyknots_2</a></p>
+    </section>
+
+    <section id="order" class="order-section">
+      <h2>Want to Order?</h2>
+      <p>Click the button below to message us directly and start your custom order!</p>
+      <button onclick="window.location.href='mailto:shabandri.k6@gmail.com'">Order Now</button>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Crochet Creations</p>
+    <p>&copy; 2025 CozyKnots. All rights reserved.</p>
   </footer>
 </body>
 </html>
+
