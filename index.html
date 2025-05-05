@@ -12,12 +12,14 @@
       padding: 0;
       color: #444;
     }
+
     nav {
       background: linear-gradient(to right, #b4e0e7, #e8d4f0);
       padding: 1rem;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+
     nav a {
       margin: 0 1rem;
       color: #333;
@@ -26,29 +28,35 @@
       font-size: 1.1rem;
       transition: color 0.3s;
     }
+
     nav a:hover {
       color: #6b4b8b;
     }
+
     main {
       padding: 2rem;
       text-align: center;
     }
+
     h1 {
       font-family: 'Pacifico', cursive;
       color: #6b4b8b;
       font-size: 3rem;
       margin-top: 1rem;
     }
+
     h2 {
       font-family: 'Pacifico', cursive;
       color: #6b4b8b;
     }
+
     .intro p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: auto;
       color: #555;
     }
+
     .product {
       background: #ffffff;
       margin: 1.5rem auto;
@@ -57,13 +65,15 @@
       box-shadow: 0 8px 12px rgba(0,0,0,0.08);
       max-width: 420px;
       opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s, transform 1s ease-in-out;
+      transform: translateY(60px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .product.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     footer {
       background: #d8e2dc;
       text-align: center;
@@ -104,15 +114,17 @@
   </footer>
 
   <script>
-    // JavaScript to trigger the sliding effect for products
-    window.addEventListener("load", function() {
-      const products = document.querySelectorAll('.product');
-      products.forEach((product, index) => {
-        setTimeout(() => {
-          product.classList.add('visible');
-        }, 300 * index); // Delay each product's animation slightly for a staggered effect
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
+    }, {
+      threshold: 0.3
     });
+
+    document.querySelectorAll('.product').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
