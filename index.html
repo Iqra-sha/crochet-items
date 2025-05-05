@@ -3,16 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <title>CozyKnots</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #fff0f5; margin: 0; padding: 2rem; text-align: center; color: #333; }
-    nav a { margin: 0 1rem; color: #ff69b4; text-decoration: none; font-weight: bold; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(#fff0f5, #ffe4e1);
+      margin: 0;
+      padding: 0;
+      color: #444;
+    }
+    nav {
+      background: linear-gradient(to right, #ffb6c1, #ff69b4);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffe4e1;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 2.5rem;
+      margin-top: 1rem;
+    }
+    .intro p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 600px;
+      margin: auto;
+    }
     .product {
       background: #fff;
-      margin: 1rem auto;
+      margin: 1.5rem auto;
+      padding: 1.2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.08);
+      max-width: 420px;
+      transition: transform 0.3s ease;
+    }
+    .product:hover {
+      transform: scale(1.02);
+    }
+    footer {
+      background: #f8c3d4;
+      text-align: center;
       padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 8px #ccc;
-      max-width: 400px;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #444;
     }
   </style>
 </head>
@@ -25,14 +75,25 @@
     <a href="order.html">Order</a>
   </nav>
 
-  <h1>Welcome to CozyKnots!</h1>
-  <p>Handmade crochet clothes & cozy accessories stitched with love, sass, and probably too much yarn. 🧶💖</p>
+  <main>
+    <h1>Welcome to CozyKnots!</h1>
+    <section class="intro">
+      <p>Handmade crochet creations that wrap you in love — from bags to baby cardigans. Every stitch is crafted with care and sprinkled with cozy charm! 🧶✨</p>
+    </section>
 
-  <section id="products">
-    <h2>Our Products</h2>
-    <div class="product"><strong>💐 Flower Bouquet Blanket</strong><br>Wrap yourself in soft, blooming coziness.</div>
-    <div class="product"><strong>👜 Flower Bouquet String Bag</strong><br>A cute, sturdy bag that blooms with style!</div>
-    <div class="product"><strong>👕 Crochet Mesh Tops</strong><br>Light, breathable, and effortlessly cute.</div>
-  </section>
+    <section id="products">
+      <h2>Our Products</h2>
+      <div class="product"><strong>👜 Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
+      <div class="product"><strong>👚 Mesh Tops</strong><br>Light, breathable, and super cute for summer vibes!</div>
+      <div class="product"><strong>🔑 Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
+      <div class="product"><strong>🍼 Baby Blankets</strong><br>Soft, gentle, and perfect for little bundles of joy.</div>
+      <div class="product"><strong>🧥 Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CozyKnots with 💕</p>
+  </footer>
 </body>
 </html>
+
