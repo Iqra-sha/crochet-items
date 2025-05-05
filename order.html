@@ -3,21 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <title>Order - CozyKnots</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #fff0f5; padding: 2rem; text-align: center; }
-    nav a { margin: 0 1rem; text-decoration: none; color: #ff69b4; font-weight: bold; }
-    button {
-      background: #ff69b4;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(#fff0f5, #ffe4e1);
+      margin: 0;
+      padding: 0;
+      color: #444;
     }
-    button:hover {
-      background: #ff1493;
+    nav {
+      background: linear-gradient(to right, #ffb6c1, #ff69b4);
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffe4e1;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #ff85c1;
+    }
+    footer {
+      background: #f8c3d4;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -30,8 +71,15 @@
     <a href="order.html">Order</a>
   </nav>
 
-  <h1>Want to Order?</h1>
-  <p>Click below to start a custom order via email — we can't wait to create something special for you!</p>
-  <button onclick="window.location.href='mailto:shabandri.k6@gmail.com'">Order Now</button>
+  <main>
+    <h1>Ready to Order?</h1>
+    <p>To place an order or ask about availability, just email us with your request!</p>
+    <a href="mailto:shabandri.k6@gmail.com" class="btn">Email Us to Order</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CozyKnots with 💕</p>
+  </footer>
 </body>
 </html>
+
