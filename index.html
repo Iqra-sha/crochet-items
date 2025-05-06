@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>CozyKnots</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(#f3faff, #fff8f0);
+      background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(#f3faff, #fff8f0);
+      background-repeat: repeat;
+      background-size: auto;
       margin: 0;
       padding: 0;
       color: #444;
-      scroll-behavior: smooth;
     }
     nav {
       background: linear-gradient(to right, #b4e0e7, #e8d4f0);
@@ -34,17 +35,15 @@
       padding: 2rem;
       text-align: center;
     }
-    h1, h2 {
+    h1 {
       font-family: 'Luckiest Guy', cursive;
       color: #6b4b8b;
-    }
-    h1 {
       font-size: 3rem;
       margin-top: 1rem;
     }
     h2 {
-      font-size: 2.2rem;
-      margin-top: 3rem;
+      font-family: 'Pacifico', cursive;
+      color: #6b4b8b;
     }
     .intro p {
       font-size: 1.2rem;
@@ -59,16 +58,17 @@
       border-radius: 16px;
       box-shadow: 0 8px 12px rgba(0,0,0,0.08);
       max-width: 420px;
+      transition: transform 0.3s ease;
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .product:hover {
+      transform: scale(1.02);
     }
     .product.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-    .product:hover {
-      transform: scale(1.02);
     }
     footer {
       background: #d8e2dc;
@@ -78,33 +78,13 @@
       font-size: 0.9rem;
       color: #444;
     }
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #ffb6c1;
-      color: white;
-      border: none;
-      padding: 0.7rem 1rem;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      display: none;
-      transition: background 0.3s, transform 0.3s;
-      z-index: 1000;
-    }
-    #backToTop:hover {
-      background: #ff85c1;
-      transform: scale(1.1);
-    }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="#products">Shop</a>
+    <a href="index.html#products">Shop</a>
     <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
   </nav>
@@ -115,49 +95,34 @@
       <p>Handmade crochet creations stitched with love, charm, and pastel vibes — made just for you! 💖🧶</p>
     </section>
 
-   <section id="products">
-  <h2 class="fade-in">Our Products</h2>
-  <div class="product fade-in"><strong>🔑 Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
-  <div class="product fade-in"><strong>🧶 Blankets</strong><br>Soft, warm, and full of cozy charm for every season.</div>
-  <div class="product fade-in"><strong>👚 Mesh Tops</strong><br>Light, breathable, and perfect for summer vibes!</div>
-  <div class="product fade-in"><strong>👜 Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
-  <div class="product fade-in"><strong>🧥 Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
-  <div class="product fade-in"><strong>🍼 Baby Blankets</strong><br>Gentle and perfect for little bundles of joy.</div>
-</section>
+    <section id="products">
+      <h2>Our Products</h2>
+      <div class="product">🔑 <strong>Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
+      <div class="product">🧶 <strong>Blankets</strong><br>Soft, warm, and full of cozy charm for every season.</div>
+      <div class="product">👚 <strong>Mesh Tops</strong><br>Light, breathable, and perfect for summer vibes!</div>
+      <div class="product">👜 <strong>Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
+      <div class="product">🧥 <strong>Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+      <div class="product">🍼 <strong>Baby Blankets</strong><br>Gentle and perfect for little bundles of joy.</div>
+    </section>
   </main>
-
-  <button id="backToTop" title="Back to top">↑</button>
 
   <footer>
     <p>&copy; 2025 CozyKnots with 💕</p>
   </footer>
 
   <script>
-    // Reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
+    // Scroll animation for product fade-ins
+    const products = document.querySelectorAll('.product');
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.product').forEach(el => observer.observe(el));
-
-    // Back to top button
-    const backToTop = document.getElementById("backToTop");
-
-    window.onscroll = function () {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
-      }
-    };
-
-    backToTop.onclick = function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    }, {
+      threshold: 0.1
+    });
+    products.forEach(product => observer.observe(product));
   </script>
 </body>
 </html>
