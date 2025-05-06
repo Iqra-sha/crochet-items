@@ -3,17 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>CozyKnots</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(#f3faff, #fff8f0);
-      background-repeat: repeat;
-      background-size: auto;
+      background: linear-gradient(#f3faff, #fff8f0);
       margin: 0;
       padding: 0;
       color: #444;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    .blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+    .blob1 {
+      top: -120px;
+      left: -100px;
+    }
+    .blob2 {
+      bottom: -120px;
+      right: -100px;
+    }
+
     nav {
       background: linear-gradient(to right, #b4e0e7, #e8d4f0);
       padding: 1rem;
@@ -31,26 +48,30 @@
     nav a:hover {
       color: #6b4b8b;
     }
+
     main {
       padding: 2rem;
       text-align: center;
     }
+
     h1 {
-      font-family: 'Luckiest Guy', cursive;
+      font-family: 'DynaPuff', cursive;
       color: #6b4b8b;
       font-size: 3rem;
       margin-top: 1rem;
     }
     h2 {
-      font-family: 'Pacifico', cursive;
+      font-family: 'DynaPuff', cursive;
       color: #6b4b8b;
     }
+
     .intro p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: auto;
       color: #555;
     }
+
     .product {
       background: #ffffff;
       margin: 1.5rem auto;
@@ -58,18 +79,16 @@
       border-radius: 16px;
       box-shadow: 0 8px 12px rgba(0,0,0,0.08);
       max-width: 420px;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease, opacity 0.5s ease;
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(30px);
     }
-    .product:hover {
-      transform: scale(1.02);
-    }
-    .product.visible {
+
+    .product.show {
       opacity: 1;
       transform: translateY(0);
     }
+
     footer {
       background: #d8e2dc;
       text-align: center;
@@ -81,10 +100,20 @@
   </style>
 </head>
 <body>
+  <!-- Blobs -->
+  <svg class="blob blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#e8d4f0" d="M53.2,-59.4C65.4,-49.7,69.9,-29.4,67.5,-11.2C65,7,55.5,22.9,43.3,35.5C31.1,48.1,15.6,57.4,-0.7,58C-17.1,58.5,-34.2,50.3,-47.2,37.7C-60.1,25.2,-69,8.3,-67.2,-8.9C-65.3,-26.1,-52.8,-43.4,-37.2,-53.3C-21.6,-63.2,-2.8,-65.7,15.4,-68.6C33.5,-71.5,50.9,-74.6,53.2,-59.4Z" transform="translate(100 100)" />
+  </svg>
+
+  <svg class="blob blob2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#b4e0e7" d="M43.5,-48.6C57.8,-37.5,71.8,-24.2,70.6,-10.8C69.4,2.6,53,16.1,41.2,33.6C29.4,51.1,22.2,72.5,7.8,75.5C-6.5,78.5,-29.1,63,-41.8,46.5C-54.5,30,-57.4,12.5,-57.3,-5.6C-57.2,-23.7,-54.1,-42.3,-42.3,-53.3C-30.6,-64.4,-10.3,-67.9,6.7,-63.6C23.7,-59.3,47.4,-47.7,43.5,-48.6Z" transform="translate(300 300)" />
+  </svg>
+
+  <!-- Nav -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="index.html#products">Shop</a>
+    <a href="#products">Shop</a>
     <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
   </nav>
@@ -97,12 +126,11 @@
 
     <section id="products">
       <h2>Our Products</h2>
+      <div class="product">👜 <strong>Bags</strong><br>Trendy, durable, and adorable for daily use.</div>
+      <div class="product">👚 <strong>Mesh Tops</strong><br>Light, breathable, and perfect for summer.</div>
       <div class="product">🔑 <strong>Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
-      <div class="product">🧶 <strong>Blankets</strong><br>Soft, warm, and full of cozy charm for every season.</div>
-      <div class="product">👚 <strong>Mesh Tops</strong><br>Light, breathable, and perfect for summer vibes!</div>
-      <div class="product">👜 <strong>Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
+      <div class="product">🍼 <strong>Baby Blankets</strong><br>Soft and gentle for little bundles of joy.</div>
       <div class="product">🧥 <strong>Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
-      <div class="product">🍼 <strong>Baby Blankets</strong><br>Gentle and perfect for little bundles of joy.</div>
     </section>
   </main>
 
@@ -110,19 +138,22 @@
     <p>&copy; 2025 CozyKnots with 💕</p>
   </footer>
 
+  <!-- Scroll effect -->
   <script>
-    // Scroll animation for product fade-ins
     const products = document.querySelectorAll('.product');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('show');
         }
       });
     }, {
-      threshold: 0.1
+      threshold: 0.2
     });
-    products.forEach(product => observer.observe(product));
+
+    products.forEach(product => {
+      observer.observe(product);
+    });
   </script>
 </body>
 </html>
