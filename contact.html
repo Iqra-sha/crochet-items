@@ -3,75 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <title>Contact - CozyKnots</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=DynaPuff&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background-color: #fff4e6; /* Soft warm base */
-      color: #333;
+      background-color: #fff6ec; /* Soft warm beige */
+      color: #4b3b2a;
       position: relative;
       overflow-x: hidden;
     }
+
     nav {
-      background-color: #f7c59f;
+      background-color: #f8a488;
       padding: 1rem;
       text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     nav a {
+      color: #fff;
       margin: 0 1rem;
-      color: #4e342e;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
     }
+
     nav a:hover {
-      color: #8e4b10;
+      text-decoration: underline;
     }
+
     h1 {
-      font-family: 'Luckiest Guy', cursive;
-      color: #d26a5c;
+      font-family: 'DynaPuff', cursive;
       text-align: center;
+      color: #ec6e4c;
       margin-top: 2rem;
+      font-size: 2.5rem;
     }
-    main {
-      text-align: center;
+
+    .content {
+      max-width: 800px;
+      margin: 2rem auto;
       padding: 2rem;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      opacity: 0;
+      animation: slideUp 0.6s ease-out forwards;
     }
+
     footer {
-      background: #ffe1cc;
+      background-color: #ffd8b1;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
+
     footer a {
-      color: #5e3023;
-      text-decoration: none;
-      margin-left: 8px;
-    }
-    footer a:hover {
+      color: #4b3b2a;
       text-decoration: underline;
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="index.html#products">Shop</a>
-    <a href="contact.html">Contact</a>
-    <a href="order.html">Custom Order</a>
-  </nav>
-
-  <main>
+  <div class="content">
     <h1>Contact Us</h1>
-    <p>Have any questions or want to place a custom order? Reach out to us!</p>
-    <p>Email us at: <a href="mailto:shabandri.k6@gmail.com">shabandri.k6@gmail.com</a></p>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 CozyKnots with 💕 | <a href="policy.html">Privacy Policy</a></p>
-  </footer>
+    <p>If you have any questions or want to place a custom order, feel free to reach out via email!</p>
+    <p>Email: <a href="mailto:shabandri.k6@gmail.com">shabandri.k6@gmail.com</a></p>
+    <footer>
+      <p>&copy; 2025 CozyKnots — Handmade with love</p>
+      <p><a href="policy.html">Privacy Policy</a></p>
+    </footer>
+  </div>
 </body>
 </html>
