@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>CozyKnots</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
@@ -11,15 +11,14 @@
       margin: 0;
       padding: 0;
       color: #444;
+      scroll-behavior: smooth;
     }
-
     nav {
       background: linear-gradient(to right, #b4e0e7, #e8d4f0);
       padding: 1rem;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
     nav a {
       margin: 0 1rem;
       color: #333;
@@ -28,35 +27,31 @@
       font-size: 1.1rem;
       transition: color 0.3s;
     }
-
     nav a:hover {
       color: #6b4b8b;
     }
-
     main {
       padding: 2rem;
       text-align: center;
     }
-
-    h1 {
-      font-family: 'Pacifico', cursive;
+    h1, h2 {
+      font-family: 'Luckiest Guy', cursive;
       color: #6b4b8b;
+    }
+    h1 {
       font-size: 3rem;
       margin-top: 1rem;
     }
-
     h2 {
-      font-family: 'Pacifico', cursive;
-      color: #6b4b8b;
+      font-size: 2.2rem;
+      margin-top: 3rem;
     }
-
     .intro p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: auto;
       color: #555;
     }
-
     .product {
       background: #ffffff;
       margin: 1.5rem auto;
@@ -65,15 +60,16 @@
       box-shadow: 0 8px 12px rgba(0,0,0,0.08);
       max-width: 420px;
       opacity: 0;
-      transform: translateY(60px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
     }
-
     .product.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
+    .product:hover {
+      transform: scale(1.02);
+    }
     footer {
       background: #d8e2dc;
       text-align: center;
@@ -82,13 +78,33 @@
       font-size: 0.9rem;
       color: #444;
     }
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ffb6c1;
+      color: white;
+      border: none;
+      padding: 0.7rem 1rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      display: none;
+      transition: background 0.3s, transform 0.3s;
+      z-index: 1000;
+    }
+    #backToTop:hover {
+      background: #ff85c1;
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="index.html#products">Shop</a>
+    <a href="#products">Shop</a>
     <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
   </nav>
@@ -101,30 +117,44 @@
 
     <section id="products">
       <h2>Our Products</h2>
-      <div class="product"><strong>👜 Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
-      <div class="product"><strong>👚 Mesh Tops</strong><br>Light, breathable, and super cute for summer vibes!</div>
       <div class="product"><strong>🔑 Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
-      <div class="product"><strong>🍼 Baby Blankets</strong><br>Soft, gentle, and perfect for little bundles of joy.</div>
-      <div class="product"><strong>🧥 Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+      <div class="product"><strong>🍼 Blankets</strong><br>Soft, cozy, and stitched for sweet dreams.</div>
+      <div class="product"><strong>👚 Mesh Tops</strong><br>Light, breathable, and super cute for summer vibes!</div>
     </section>
   </main>
+
+  <button id="backToTop" title="Back to top">↑</button>
 
   <footer>
     <p>&copy; 2025 CozyKnots with 💕</p>
   </footer>
 
   <script>
+    // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.3
-    });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.product').forEach(el => observer.observe(el));
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    };
+
+    backToTop.onclick = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   </script>
 </body>
 </html>
