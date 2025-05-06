@@ -1,122 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>CozyKnots</title>
   <link href="https://fonts.googleapis.com/css2?family=DynaPuff&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
+      background-color: #fff4e6; /* warm soft peach */
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(#f3faff, #fff8f0);
       color: #444;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* SVG Blobs */
-    .blob {
-      position: absolute;
-      z-index: 0;
-      opacity: 0.3;
-    }
-    .blob1 {
-      top: -80px;
-      left: -80px;
-      width: 300px;
-      height: 300px;
-    }
-    .blob2 {
-      bottom: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-    }
-
     nav {
-      background: linear-gradient(to right, #b4e0e7, #e8d4f0);
+      background-color: #ffc6a0;
       padding: 1rem;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      z-index: 1;
-      position: relative;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
 
     nav a {
       margin: 0 1rem;
-      color: #333;
+      color: #4d2c1d;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
-      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #6b4b8b;
-    }
-
-    main {
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-      z-index: 1;
+      color: #8b4e3d;
     }
 
     h1 {
       font-family: 'DynaPuff', cursive;
-      color: #6b4b8b;
+      color: #d17750;
       font-size: 3rem;
-      margin-top: 1rem;
+      margin-top: 2rem;
+      text-align: center;
     }
 
     h2 {
-      font-family: 'Pacifico', cursive;
-      color: #6b4b8b;
-      font-size: 2.2rem;
+      font-family: 'DynaPuff', cursive;
+      color: #d17750;
+      text-align: center;
+      margin-top: 3rem;
     }
 
     .intro p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: auto;
-      color: #555;
+      margin: 1rem auto 3rem;
+      text-align: center;
     }
 
     .product {
-      background: #ffffff;
+      background: #fff;
       margin: 1.5rem auto;
       padding: 1.2rem;
       border-radius: 16px;
-      box-shadow: 0 8px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
       max-width: 420px;
-      transition: transform 0.3s ease, opacity 0.5s ease;
+      text-align: center;
       opacity: 0;
       transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .product.show {
+    .product.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
     footer {
-      background: #d8e2dc;
+      background-color: #ffe2cc;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
       font-size: 0.9rem;
-      color: #444;
+    }
+
+    /* Blob styles */
+    .blob {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.15;
+    }
+
+    .blob1 {
+      top: -60px;
+      left: -60px;
+      width: 300px;
+    }
+
+    .blob2 {
+      bottom: -80px;
+      right: -60px;
+      width: 280px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- SVG Blobs -->
+
+  <!-- Blob SVGs -->
   <svg class="blob blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#cce5f6" d="M42.8,-66.3C53.6,-57.4,60.6,-44.2,67.1,-30.7C73.5,-17.3,79.5,-3.7,76.9,8.7C74.4,21.1,63.2,32.2,52.2,43.1C41.1,54,30.2,64.7,17.1,68.5C3.9,72.3,-11.5,69.2,-27.4,65.2C-43.2,61.1,-59.6,56,-65.8,44.6C-71.9,33.2,-67.9,15.6,-67.5,-2.6C-67,-20.8,-70,-39.7,-61.2,-52.4C-52.5,-65.2,-31.9,-71.9,-12.3,-67.7C7.3,-63.5,14.6,-48.4,42.8,-66.3Z" transform="translate(100 100)" />
+    <path fill="#ffccaa" d="M44.8,-69.7C59.7,-59.5,74.7,-49.2,78.3,-35.8C81.8,-22.5,74,-6.2,67.3,7.7C60.6,21.7,55,33.3,46.7,47.3C38.3,61.3,27.1,77.7,11.3,83.4C-4.6,89,-25,83.9,-37.4,71.6C-49.8,59.4,-54.3,40,-60.6,23.3C-66.9,6.5,-75,-7.5,-70.8,-17.5C-66.7,-27.5,-50.3,-33.5,-37.4,-44.7C-24.5,-55.9,-15.2,-72.3,-2,-70.6C11.2,-68.9,22.4,-49.9,44.8,-69.7Z" transform="translate(100 100)" />
   </svg>
+
   <svg class="blob blob2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#fcddec" d="M40.3,-66.5C53.6,-55.6,66.1,-44.5,69.2,-30.5C72.3,-16.4,65.9,-0.5,61.4,16.4C56.9,33.3,54.4,51.2,43.5,60.6C32.5,70.1,13.2,71,-3.5,69C-20.1,67,-40.3,62.1,-53.4,50.4C-66.5,38.7,-72.4,20.3,-71.5,3.6C-70.6,-13.1,-62.9,-26.1,-53.8,-37.3C-44.6,-48.5,-34.1,-57.8,-21.7,-66.4C-9.4,-75,-0.2,-83,12.2,-85.6C24.6,-88.2,49.1,-85.7,40.3,-66.5Z" transform="translate(100 100)" />
+    <path fill="#ffc2a1" d="M48.3,-67.4C62.1,-55.5,72.7,-42.2,77.2,-27.1C81.7,-12,80.1,5,72.5,18.4C64.8,31.9,51.1,41.8,38.6,53.3C26.1,64.9,13,78.1,-2.7,82.1C-18.4,86,-36.8,80.6,-51.8,69.3C-66.9,58,-78.6,40.7,-81.2,23.3C-83.9,5.9,-77.6,-11.7,-67.7,-25.8C-57.8,-39.9,-44.2,-50.5,-30.7,-62.8C-17.3,-75.1,-3.9,-89.1,10.5,-93.1C24.9,-97.1,49.6,-91.2,48.3,-67.4Z" transform="translate(100 100)" />
   </svg>
 
   <nav>
@@ -127,38 +127,37 @@
     <a href="order.html">Custom Order</a>
   </nav>
 
-  <main>
-    <h1>CozyKnots</h1>
-    <section class="intro">
-      <p>Handmade crochet creations stitched with love, charm, and pastel vibes — made just for you! 💖🧶</p>
-    </section>
+  <h1>Welcome to CozyKnots!</h1>
+  <section class="intro">
+    <p>Handmade crochet creations stitched with love, charm, and pastel vibes — made just for you! 💖🧶</p>
+  </section>
 
-    <section id="products">
-      <h2>Our Products</h2>
-      <div class="product"><strong>👜 Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
-      <div class="product"><strong>👚 Mesh Tops</strong><br>Light, breathable, and super cute for summer vibes!</div>
-      <div class="product"><strong>🔑 Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
-      <div class="product"><strong>🍼 Baby Blankets</strong><br>Soft, gentle, and perfect for little bundles of joy.</div>
-      <div class="product"><strong>🧥 Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
-    </section>
-  </main>
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product">👜 <strong>Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
+    <div class="product">👚 <strong>Mesh Tops</strong><br>Light, breathable, and super cute for summer vibes!</div>
+    <div class="product">🔑 <strong>Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
+    <div class="product">🍼 <strong>Baby Blankets</strong><br>Soft, gentle, and perfect for little bundles of joy.</div>
+    <div class="product">🧥 <strong>Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 CozyKnots with 💕</p>
+    <p>&copy; 2025 CozyKnots — Handmade with heart 🧶</p>
   </footer>
 
   <script>
-    // Scroll animation for product cards
     const products = document.querySelectorAll('.product');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+          entry.target.classList.add('visible');
         }
       });
     }, { threshold: 0.1 });
 
-    products.forEach(product => observer.observe(product));
+    products.forEach(product => {
+      observer.observe(product);
+    });
   </script>
 </body>
 </html>
