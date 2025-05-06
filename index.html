@@ -17,17 +17,19 @@
 
     .blob {
       position: absolute;
-      width: 400px;
-      height: 400px;
+      width: 60vw;
+      height: 60vw;
+      max-width: 400px;
+      max-height: 400px;
       z-index: -1;
-      opacity: 0.3;
+      opacity: 0.2;
     }
     .blob1 {
-      top: -120px;
+      top: -100px;
       left: -100px;
     }
     .blob2 {
-      bottom: -120px;
+      bottom: -100px;
       right: -100px;
     }
 
@@ -37,6 +39,7 @@
       text-align: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+
     nav a {
       margin: 0 1rem;
       color: #333;
@@ -45,13 +48,9 @@
       font-size: 1.1rem;
       transition: color 0.3s;
     }
+
     nav a:hover {
       color: #6b4b8b;
-    }
-
-    main {
-      padding: 2rem;
-      text-align: center;
     }
 
     h1 {
@@ -59,10 +58,18 @@
       color: #6b4b8b;
       font-size: 3rem;
       margin-top: 1rem;
+      text-align: center;
     }
+
     h2 {
-      font-family: 'DynaPuff', cursive;
+      font-family: 'Pacifico', cursive;
       color: #6b4b8b;
+      text-align: center;
+    }
+
+    main {
+      padding: 2rem;
+      text-align: center;
     }
 
     .intro p {
@@ -79,12 +86,12 @@
       border-radius: 16px;
       box-shadow: 0 8px 12px rgba(0,0,0,0.08);
       max-width: 420px;
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      transition: transform 0.3s ease, opacity 0.5s ease;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(50px);
     }
 
-    .product.show {
+    .product.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -100,37 +107,35 @@
   </style>
 </head>
 <body>
-  <!-- Blobs -->
+  <!-- Decorative SVG blobs -->
   <svg class="blob blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#e8d4f0" d="M53.2,-59.4C65.4,-49.7,69.9,-29.4,67.5,-11.2C65,7,55.5,22.9,43.3,35.5C31.1,48.1,15.6,57.4,-0.7,58C-17.1,58.5,-34.2,50.3,-47.2,37.7C-60.1,25.2,-69,8.3,-67.2,-8.9C-65.3,-26.1,-52.8,-43.4,-37.2,-53.3C-21.6,-63.2,-2.8,-65.7,15.4,-68.6C33.5,-71.5,50.9,-74.6,53.2,-59.4Z" transform="translate(100 100)" />
+    <path fill="#e8d4f0" d="M52.4,-60.6C64.7,-50.8,70.6,-32,66.2,-17.1C61.8,-2.1,47.2,9,35.1,22.7C22.9,36.4,11.4,52.8,-2.1,54.6C-15.6,56.4,-31.3,43.6,-43.4,29.2C-55.5,14.9,-63.8,-1.2,-59.6,-14.8C-55.5,-28.3,-39,-39.3,-23.5,-48.7C-8,-58,6.4,-65.8,21.5,-66.6C36.7,-67.4,52.2,-61.3,52.4,-60.6Z" transform="translate(100 100)" />
   </svg>
-
   <svg class="blob blob2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#b4e0e7" d="M43.5,-48.6C57.8,-37.5,71.8,-24.2,70.6,-10.8C69.4,2.6,53,16.1,41.2,33.6C29.4,51.1,22.2,72.5,7.8,75.5C-6.5,78.5,-29.1,63,-41.8,46.5C-54.5,30,-57.4,12.5,-57.3,-5.6C-57.2,-23.7,-54.1,-42.3,-42.3,-53.3C-30.6,-64.4,-10.3,-67.9,6.7,-63.6C23.7,-59.3,47.4,-47.7,43.5,-48.6Z" transform="translate(300 300)" />
+    <path fill="#b4e0e7" d="M38.4,-52.5C50.7,-41.4,61.8,-30.1,64.6,-17.5C67.5,-4.9,62.1,9.1,54.4,22.7C46.6,36.3,36.5,49.4,23.3,54.6C10,59.9,-6.4,57.3,-19.2,50.1C-32.1,42.9,-41.3,31.1,-51.7,16.1C-62.1,1.1,-73.7,-17.1,-67.9,-29.2C-62.2,-41.2,-39.2,-47.1,-20.5,-54.6C-1.8,-62.1,12.6,-71.3,25.2,-67.1C37.9,-62.9,49.3,-45.4,38.4,-52.5Z" transform="translate(100 100)" />
   </svg>
 
-  <!-- Nav -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="#products">Shop</a>
+    <a href="index.html#products">Shop</a>
     <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
   </nav>
 
   <main>
-    <h1>Welcome to CozyKnots!</h1>
+    <h1>CozyKnots</h1>
     <section class="intro">
       <p>Handmade crochet creations stitched with love, charm, and pastel vibes — made just for you! 💖🧶</p>
     </section>
 
     <section id="products">
       <h2>Our Products</h2>
-      <div class="product">👜 <strong>Bags</strong><br>Trendy, durable, and adorable for daily use.</div>
-      <div class="product">👚 <strong>Mesh Tops</strong><br>Light, breathable, and perfect for summer.</div>
-      <div class="product">🔑 <strong>Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
-      <div class="product">🍼 <strong>Baby Blankets</strong><br>Soft and gentle for little bundles of joy.</div>
-      <div class="product">🧥 <strong>Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+      <div class="product"><strong>🔑 Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
+      <div class="product"><strong>🧶 Blankets</strong><br>Soft and snuggly warmth, perfect for cozy nights.</div>
+      <div class="product"><strong>👚 Mesh Tops</strong><br>Light, breathable, and perfect for summer vibes!</div>
+      <div class="product"><strong>🧥 Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+      <div class="product"><strong>👜 Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
     </section>
   </main>
 
@@ -138,22 +143,20 @@
     <p>&copy; 2025 CozyKnots with 💕</p>
   </footer>
 
-  <!-- Scroll effect -->
+  <!-- Scroll Reveal Script -->
   <script>
     const products = document.querySelectorAll('.product');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.2
-    });
+    }, { threshold: 0.1 });
 
-    products.forEach(product => {
-      observer.observe(product);
-    });
+    products.forEach(p => observer.observe(p));
   </script>
 </body>
 </html>
+
