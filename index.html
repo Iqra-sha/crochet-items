@@ -1,123 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>CozyKnots</title>
-  <link href="https://fonts.googleapis.com/css2?family=DynaPuff&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #fff4e6; /* warm soft peach */
       font-family: 'Quicksand', sans-serif;
-      color: #444;
-      position: relative;
-      overflow-x: hidden;
+      background-color: #FFF8F0;
+      color: #333;
     }
 
+    .blob {
+      position: absolute;
+      z-index: -1;
+      width: 500px;
+      opacity: 0.15;
+    }
+
+    .top-left { top: -100px; left: -150px; transform: rotate(30deg); }
+    .bottom-right { bottom: -100px; right: -150px; transform: rotate(-20deg); }
+
     nav {
-      background-color: #ffc6a0;
+      background-color: #FFCF96;
       padding: 1rem;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
 
     nav a {
       margin: 0 1rem;
-      color: #4d2c1d;
       text-decoration: none;
+      color: #333;
       font-weight: bold;
       font-size: 1.1rem;
     }
 
-    nav a:hover {
-      color: #8b4e3d;
-    }
-
     h1 {
-      font-family: 'DynaPuff', cursive;
-      color: #d17750;
+      font-family: 'Luckiest Guy', cursive;
+      color: #FF5F7E;
       font-size: 3rem;
+      text-align: center;
       margin-top: 2rem;
-      text-align: center;
     }
 
-    h2 {
-      font-family: 'DynaPuff', cursive;
-      color: #d17750;
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .intro p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 1rem auto 3rem;
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
       text-align: center;
     }
 
     .product {
-      background: #fff;
-      margin: 1.5rem auto;
-      padding: 1.2rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
-      max-width: 420px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .product.visible {
-      opacity: 1;
-      transform: translateY(0);
+      background: #FFFAE3;
+      margin: 1rem auto;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
     }
 
     footer {
-      background-color: #ffe2cc;
+      background: #FFE1E1;
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
 
-    /* Blob styles */
-    .blob {
-      position: absolute;
-      z-index: -1;
-      opacity: 0.15;
-    }
-
-    .blob1 {
-      top: -60px;
-      left: -60px;
-      width: 300px;
-    }
-
-    .blob2 {
-      bottom: -80px;
-      right: -60px;
-      width: 280px;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
+    footer a {
+      color: #FF5F7E;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-
-  <!-- Blob SVGs -->
-  <svg class="blob blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#ffccaa" d="M44.8,-69.7C59.7,-59.5,74.7,-49.2,78.3,-35.8C81.8,-22.5,74,-6.2,67.3,7.7C60.6,21.7,55,33.3,46.7,47.3C38.3,61.3,27.1,77.7,11.3,83.4C-4.6,89,-25,83.9,-37.4,71.6C-49.8,59.4,-54.3,40,-60.6,23.3C-66.9,6.5,-75,-7.5,-70.8,-17.5C-66.7,-27.5,-50.3,-33.5,-37.4,-44.7C-24.5,-55.9,-15.2,-72.3,-2,-70.6C11.2,-68.9,22.4,-49.9,44.8,-69.7Z" transform="translate(100 100)" />
-  </svg>
-
-  <svg class="blob blob2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#ffc2a1" d="M48.3,-67.4C62.1,-55.5,72.7,-42.2,77.2,-27.1C81.7,-12,80.1,5,72.5,18.4C64.8,31.9,51.1,41.8,38.6,53.3C26.1,64.9,13,78.1,-2.7,82.1C-18.4,86,-36.8,80.6,-51.8,69.3C-66.9,58,-78.6,40.7,-81.2,23.3C-83.9,5.9,-77.6,-11.7,-67.7,-25.8C-57.8,-39.9,-44.2,-50.5,-30.7,-62.8C-17.3,-75.1,-3.9,-89.1,10.5,-93.1C24.9,-97.1,49.6,-91.2,48.3,-67.4Z" transform="translate(100 100)" />
-  </svg>
+  <img src="https://www.svgrepo.com/show/353346/blob.svg" class="blob top-left">
+  <img src="https://www.svgrepo.com/show/353346/blob.svg" class="blob bottom-right">
 
   <nav>
     <a href="index.html">Home</a>
@@ -127,37 +85,22 @@
     <a href="order.html">Custom Order</a>
   </nav>
 
-  <h1>Welcome to CozyKnots!</h1>
-  <section class="intro">
-    <p>Handmade crochet creations stitched with love, charm, and pastel vibes — made just for you! 💖🧶</p>
+  <h1>CozyKnots</h1>
+
+  <section>
+    <p>Handmade crochet items crafted with love and sunshine! ☀️🧶</p>
   </section>
 
   <section id="products">
-    <h2>Our Products</h2>
-    <div class="product">👜 <strong>Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
-    <div class="product">👚 <strong>Mesh Tops</strong><br>Light, breathable, and super cute for summer vibes!</div>
-    <div class="product">🔑 <strong>Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
-    <div class="product">🍼 <strong>Baby Blankets</strong><br>Soft, gentle, and perfect for little bundles of joy.</div>
-    <div class="product">🧥 <strong>Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+    <div class="product">👜 <strong>Bags</strong><br>Stylish, handmade, and durable</div>
+    <div class="product">👚 <strong>Mesh Tops</strong><br>Light and breezy for summer</div>
+    <div class="product">🔑 <strong>Keychains</strong><br>Adorable mini crochet charms</div>
+    <div class="product">🍼 <strong>Baby Blankets</strong><br>Soft and perfect for newborns</div>
+    <div class="product">🧥 <strong>Baby Cardigans</strong><br>Warmth with charm</div>
   </section>
 
   <footer>
-    <p>&copy; 2025 CozyKnots — Handmade with heart 🧶</p>
+    <p>&copy; 2025 CozyKnots | <a href="privacy.html">Privacy Policy</a></p>
   </footer>
-
-  <script>
-    const products = document.querySelectorAll('.product');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    products.forEach(product => {
-      observer.observe(product);
-    });
-  </script>
 </body>
 </html>
