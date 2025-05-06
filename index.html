@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CozyKnots - Handmade Crochet</title>
+  <title>Home - CozyKnots</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=DynaPuff&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background-color: #fff6ec; /* Soft warm beige */
+      background-color: #fff6ec;
       color: #4b3b2a;
       position: relative;
       overflow-x: hidden;
@@ -37,26 +37,34 @@
       font-family: 'DynaPuff', cursive;
       text-align: center;
       color: #ec6e4c;
-      margin-top: 2rem;
+      margin: 2rem 0 1rem;
       font-size: 2.5rem;
     }
 
-    .content {
-      max-width: 800px;
+    h2 {
+      text-align: center;
+      color: #d4623c;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    #products {
+      max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      opacity: 0;
-      animation: slideUp 0.6s ease-out forwards;
     }
 
-    @keyframes slideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .product {
+      font-size: 1.1rem;
+      padding: 1rem;
+      border-bottom: 1px solid #ffe3c4;
+    }
+
+    .product:last-child {
+      border-bottom: none;
     }
 
     footer {
@@ -72,7 +80,6 @@
       text-decoration: underline;
     }
 
-    /* Subtle abstract blob overlay */
     .blob {
       position: absolute;
       z-index: -1;
@@ -103,6 +110,7 @@
     <path fill="#fdd9d1" d="M42.3,-62.5C54.2,-53.7,63.6,-43.4,70.4,-30.4C77.3,-17.4,81.6,-1.7,77.5,12.6C73.5,26.9,61.2,39.8,48.1,47.5C35,55.2,21.1,57.7,6.4,57.6C-8.3,57.4,-16.6,54.5,-30.5,50.9C-44.5,47.3,-64.1,43,-72.8,32.1C-81.6,21.2,-79.5,3.6,-70.6,-9.9C-61.7,-23.3,-46,-32.5,-33.8,-41.4C-21.6,-50.2,-10.8,-58.6,2.7,-62.4C16.2,-66.2,32.4,-65.3,42.3,-62.5Z" transform="translate(100 100)" />
   </svg>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -111,11 +119,16 @@
     <a href="order.html">Custom Order</a>
   </nav>
 
-  <h1>CozyKnots</h1>
+  <h1>Welcome to CozyKnots</h1>
 
-  <div class="content">
-    <p>Welcome to CozyKnots, your destination for handmade crochet products. Here, you'll find beautiful items such as keychains, mesh tops, and cozy blankets, all crafted with love. Browse our products and get in touch for custom orders!</p>
-  </div>
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product"><strong>👜 Bags</strong><br>Trendy, durable, and totally adorable for daily use.</div>
+    <div class="product"><strong>👚 Mesh Tops</strong><br>Light, breathable, and super cute for summer vibes!</div>
+    <div class="product"><strong>🔑 Keychains</strong><br>Mini crochet magic you can carry everywhere.</div>
+    <div class="product"><strong>🍼 Baby Blankets</strong><br>Soft, gentle, and perfect for little bundles of joy.</div>
+    <div class="product"><strong>🧥 Baby Cardigans</strong><br>Stylish warmth for the tiniest fashionistas.</div>
+  </section>
 
   <footer>
     <p>&copy; 2025 CozyKnots — Handmade with love</p>
@@ -124,4 +137,3 @@
 
 </body>
 </html>
-
