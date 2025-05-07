@@ -26,54 +26,71 @@
       font-size: 1.1rem;
     }
 
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     h1 {
       font-family: 'DynaPuff', cursive;
       text-align: center;
       color: #ec6e4c;
-      margin: 2rem 0;
+      margin: 2rem 0 0.5rem;
+      font-size: 2.5rem;
     }
 
-    .yarn-container {
+    .description {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+
+    .product-container {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 2rem;
       padding: 2rem;
     }
 
-    .yarn {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      padding: 1rem;
+    .product-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
       max-width: 250px;
+      padding: 1rem;
       text-align: center;
     }
 
-    .yarn img {
+    .product-card img {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
 
-    .yarn h3 {
-      margin: 0.5rem 0 0.25rem;
+    .product-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
       color: #d4623c;
     }
 
-    .yarn p {
-      margin: 0.25rem 0;
+    .product-card select,
+    .product-card button {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #ffd8b1;
     }
 
-    .buy-button {
-      display: inline-block;
-      margin-top: 0.5rem;
+    .product-card button {
       background-color: #f8a488;
       color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background-color: #ec6e4c;
     }
 
     footer {
@@ -81,19 +98,6 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      margin-top: 2rem;
-    }
-
-    footer a {
-      color: #4b3b2a;
-      text-decoration: underline;
-    }
-
-    .note {
-      text-align: center;
-      font-style: italic;
-      margin-top: -1rem;
-      color: #555;
     }
   </style>
 </head>
@@ -101,42 +105,48 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="index.html#products">Shop</a>
-    <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
   <h1>Yarns</h1>
-  <p class="note">Each yarn listed below weighs 100g</p>
+  <div class="description">
+    Browse our handpicked yarns — soft, colorful, and perfect for your next project!
+  </div>
 
-  <div class="yarn-container">
-    <div class="yarn">
+  <div class="product-container">
+    <div class="product-card">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
       <h3>Cream Yarn</h3>
-      <p>Alize Cotton Gold</p>
-      <p>Color: 458</p>
-      <p>55% Cotton, 45% Acrylic</p>
-      <p>Price: 15 AED</p>
-      <p>Quantity: 1</p>
-      <a class="buy-button" href="#">Buy Now</a>
+      <p>15 AED</p>
+      <label for="creamQty">Quantity:</label>
+      <select id="creamQty">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <br>
+      <button>Buy Now</button>
     </div>
 
-    <div class="yarn">
+    <div class="product-card">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
       <h3>Multicolor Yarn</h3>
-      <p>Angora Gold Batik</p>
-      <p>Color: 2970</p>
-      <p>80% Acrylic, 20% Wool</p>
-      <p>Price: 15 AED</p>
-      <p>Quantity: 1</p>
-      <a class="buy-button" href="#">Buy Now</a>
+      <p>15 AED</p>
+      <label for="multiQty">Quantity:</label>
+      <select id="multiQty">
+        <option>1</option>
+        <option>2</option>
+      </select>
+      <br>
+      <button>Buy Now</button>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
-    <p><a href="policy.html">Privacy Policy</a></p>
+    &copy; 2025 Hooked by K&A • <a href="privacy.html">Privacy Policy</a>
   </footer>
 
 </body>
