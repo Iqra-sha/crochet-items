@@ -10,98 +10,88 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fff6ec;
       color: #4b3b2a;
-      position: relative;
-      overflow-x: hidden;
     }
 
     nav {
       background-color: #f8a488;
       padding: 1rem;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     nav a {
-      color: #fff;
+      color: white;
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     h1 {
       font-family: 'DynaPuff', cursive;
       text-align: center;
+      margin: 2rem 0 0.5rem;
       color: #ec6e4c;
-      margin: 2rem 0 1rem;
-      font-size: 2.5rem;
     }
 
-    .product-gallery {
+    .section-description {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      color: #6a4e3a;
+      padding: 0 1rem;
+    }
+
+    .product-grid {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
+      padding: 2rem;
     }
 
-    .product-card {
-      background-color: white;
+    .product {
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      width: 250px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      max-width: 250px;
       text-align: center;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
     }
 
-    .product-card img {
-      width: 100%;
-      border-radius: 8px;
+    .product img {
+      width: 200px;
+      border-radius: 10px;
     }
 
-    .product-name {
+    .product h3 {
+      margin: 0.5rem 0 0.2rem;
       font-size: 1.2rem;
-      font-weight: bold;
-      margin-top: 1rem;
+    }
+
+    .product p {
+      margin: 0.2rem 0;
+      font-size: 0.95rem;
     }
 
     .price {
-      font-size: 1.1rem;
-      color: #ec6e4c;
+      font-weight: bold;
       margin-top: 0.5rem;
+      color: #d4623c;
     }
 
-    .quantity {
-      font-size: 1rem;
-      color: #5a4032;
+    .buy-btn {
       margin-top: 0.5rem;
-    }
-
-    .description {
-      font-size: 0.9rem;
-      color: #5a4032;
-      margin-top: 1rem;
-    }
-
-    .buy-button {
-      background-color: #ec6e4c;
-      color: white;
+      background-color: #f8a488;
       border: none;
-      padding: 0.6rem 1.2rem;
-      margin-top: 0.7rem;
+      color: white;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s ease;
     }
 
-    .buy-button:hover {
-      background-color: #d85b3e;
+    .buy-btn:hover {
+      background-color: #ec6e4c;
     }
 
     footer {
@@ -116,12 +106,10 @@
       color: #4b3b2a;
       text-decoration: underline;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -132,49 +120,43 @@
 
   <h1>Our Yarns</h1>
 
-  <!-- Yarns Product Gallery -->
-  <section class="product-gallery">
-    <div class="product-card">
-    <img src="Iqra/cream.jpg" alt="Cream Yarn" style="width: 150px; border-radius: 10px;">
+  <p class="section-description">
+    For stitchers, dreamers, and late-night row counters — our yarns are made to inspire! Find the perfect texture and tone for every creation.
+  </p>
 
-      <div class="product-name">Cream Yarn</div>
-      <div class="price">15 AED</div>
-      <div class="quantity">100g</div>
-      <div class="description">
-        Alize Cotton Gold — Color 458, 55% Cotton, 45% Acrylic
-      </div>
-      <button class="buy-button" onclick="addToCart('Cream Yarn', 15)">Buy Now</button>
+  <section class="product-grid">
+
+    <!-- Cream Yarn -->
+    <div class="product">
+      <img src="Iqra/cream.jpg" alt="Cream Yarn">
+      <h3>Cream Yarn</h3>
+      <p>Alize Cotton Gold</p>
+      <p>Color: 458</p>
+      <p>55% Cotton, 45% Acrylic</p>
+      <p>100g</p>
+      <p class="price">15 AED</p>
+      <button class="buy-btn">Buy Now</button>
     </div>
 
-    <div class="product-card">
-    <img src="Iqra/multicolor.jpg" alt="Multicolor Yarn" style="width: 150px; border-radius: 10px;">
-      <div class="product-name">Multicolor Yarn</div>
-      <div class="price">15 AED</div>
-      <div class="quantity">100g</div>
-      <div class="description">
-        Angora Gold Batik — Color 2970, 80% Acrylic, 20% Wool
-      </div>
-      <button class="buy-button" onclick="addToCart('Multicolor Yarn', 15)">Buy Now</button>
+    <!-- Multicolor Yarn -->
+    <div class="product">
+      <img src="Iqra/multicolor.jpg" alt="Multicolor Yarn">
+      <h3>Multicolor Yarn</h3>
+      <p>Angora Gold Batik</p>
+      <p>Color: 2970</p>
+      <p>80% Acrylic, 20% Wool</p>
+      <p>100g</p>
+      <p class="price">15 AED</p>
+      <button class="buy-btn">Buy Now</button>
     </div>
+
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
     <p><a href="policy.html">Privacy Policy</a></p>
   </footer>
 
-  <!-- Cart Functionality Script -->
-  <script>
-    let cart = [];
-
-    function addToCart(product, price) {
-      const item = { product, price, quantity: 1 };
-      cart.push(item);
-      alert(`${product} has been added to your cart!`);
-      console.log(cart); // For debugging, shows the cart in the console
-    }
-  </script>
-
 </body>
 </html>
+
