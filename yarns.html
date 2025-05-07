@@ -2,175 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Yarns - Hooked by K&A</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=DynaPuff&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yarns | Hooked by K&A</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=DynaPuff&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background-color: #fff6ec;
-      color: #4b3b2a;
-      overflow-x: hidden;
+      background: #fff3e8;
+      margin: 0;
+      padding: 0;
     }
-
-    nav {
-      background-color: #f8a488;
+    header, footer {
+      background-color: #f7c8a0;
+      color: #333;
+      text-align: center;
       padding: 1rem;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     nav a {
-      margin: 0 1rem;
+      margin: 0 15px;
       text-decoration: none;
+      color: #333;
       font-weight: bold;
-      color: white;
-      font-size: 1.1rem;
     }
-
-    h1 {
-      font-family: 'DynaPuff', cursive;
+    .yarn-description {
       text-align: center;
-      font-size: 2.2rem;
-      margin-top: 1rem;
-    }
-
-    .description {
-      text-align: center;
+      margin: 2rem auto;
+      font-size: 1.2rem;
       max-width: 700px;
-      margin: 1rem auto;
-      font-size: 1.1rem;
-      color: #5f4b3c;
+      padding: 0 1rem;
     }
-
-    .yarn-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       padding: 2rem;
     }
-
-    .yarn-item {
+    .yarn-card {
       background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.3s;
+      padding: 1rem;
+      text-align: center;
     }
-
-    .yarn-item:hover {
-      transform: scale(1.02);
-    }
-
-    .yarn-item img {
+    .yarn-card img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
     }
-
-    .yarn-details {
-      padding: 1rem;
+    .yarn-info {
+      margin-top: 1rem;
+      text-align: left;
     }
-
-    .yarn-details h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+    .yarn-info p {
+      margin: 5px 0;
     }
-
-    .yarn-details p {
-      margin: 0.3rem 0;
-    }
-
-    .buy-button {
-      display: block;
-      background-color: #f8a488;
-      color: white;
-      text-align: center;
-      margin: 1rem;
-      padding: 0.6rem 1rem;
-      text-decoration: none;
+    .yarn-info label {
       font-weight: bold;
-      border-radius: 8px;
-      transition: background 0.3s;
     }
-
-    .buy-button:hover {
-      background-color: #e27a60;
+    .add-to-cart {
+      margin-top: 10px;
+      background-color: #ffb27e;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
     }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #f8a488;
-      color: white;
-      margin-top: 2rem;
+    .price {
+      margin-top: 10px;
+      font-weight: bold;
     }
-
-    .quantity-select {
-      margin-top: 0.5rem;
+    .svg-blob {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="custom.html">Custom Order</a>
-  </nav>
+  <header>
+    <h1>Hooked by K&A</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="yarns.html">Yarns</a>
+      <a href="order.html">Custom Order</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <h1>Our Yarns</h1>
+  <svg class="svg-blob" viewBox="0 0 800 500">
+    <path fill="#ffe0c7" d="M740,300Q690,350,630,370Q570,390,510,420Q450,450,390,420Q330,390,270,380Q210,370,170,330Q130,290,110,240Q90,190,120,130Q150,70,210,60Q270,50,330,60Q390,70,450,50Q510,30,570,50Q630,70,680,120Q730,170,750,230Q770,290,740,300Z" />
+  </svg>
 
-  <div class="description">
-    For stitchers, dreamers, and late-night row counters — our yarns are made to inspire! Find the perfect texture and tone for every creation.
-  </div>
+  <section class="yarn-description">
+    <p>For stitchers, dreamers, and late-night row counters — our yarns are made to inspire! Find the perfect texture and tone for every creation.</p>
+  </section>
 
-  <div class="yarn-grid">
+  <section class="grid">
     <!-- Cream Yarn -->
-    <div class="yarn-item">
+    <div class="yarn-card">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
-      <div class="yarn-details">
-        <h2>Cream Yarn</h2>
+      <div class="yarn-info">
+        <p><strong>Brand:</strong> Alize</p>
+        <p><strong>Type:</strong> Cotton Gold</p>
         <p>Color: 458</p>
         <p>55% Cotton, 45% Acrylic</p>
-        <p>100 grams</p>
-        <p><strong>Price: 15 AED</strong></p>
-        <label for="cream-qty">Quantity:</label>
-        <select id="cream-qty" class="quantity-select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <p>100g</p>
+        <label for="cream-quantity">Quantity:</label>
+        <select id="cream-quantity" name="cream-quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
+        <p class="price">AED 15</p>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
-      <a href="#" class="buy-button">Add to Cart</a>
     </div>
 
     <!-- Multicolor Yarn -->
-    <div class="yarn-item">
+    <div class="yarn-card">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
-      <div class="yarn-details">
-        <h2>Multicolor Yarn</h2>
+      <div class="yarn-info">
+        <p><strong>Brand:</strong> Alize</p>
+        <p><strong>Type:</strong> Angora Gold</p>
         <p>Color: 2970</p>
         <p>80% Acrylic, 20% Wool</p>
-        <p>100 grams</p>
-        <p><strong>Price: 15 AED</strong></p>
-        <label for="multi-qty">Quantity:</label>
-        <select id="multi-qty" class="quantity-select">
-          <option>1</option>
-          <option>2</option>
+        <p>100g</p>
+        <label for="multi-quantity">Quantity:</label>
+        <select id="multi-quantity" name="multi-quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
         </select>
+        <p class="price">AED 15</p>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
-      <a href="#" class="buy-button">Add to Cart</a>
-
     </div>
-  </div>
+  </section>
 
   <footer>
-    &copy; 2025 Hooked by K&A | <a href="privacy.html" style="color: white;">Privacy Policy</a>
+    <p>&copy; 2025 Hooked by K&A | <a href="privacy.html">Privacy Policy</a></p>
   </footer>
 
 </body>
