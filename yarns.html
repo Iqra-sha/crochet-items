@@ -10,8 +10,8 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fff6ec;
       color: #4b3b2a;
-      position: relative;
       overflow-x: hidden;
+      position: relative;
     }
 
     nav {
@@ -41,66 +41,66 @@
       font-size: 2.5rem;
     }
 
-    .container {
-      max-width: 1000px;
+    .description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #5c4633;
+    }
+
+    .yarn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
     }
 
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-
-    .product-card {
-      background: #ffffff;
+    .yarn-item {
+      background: #fff;
       border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      width: 280px;
-      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       padding: 1rem;
+      text-align: center;
     }
 
-    .product-card img {
-      max-width: 100%;
+    .yarn-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
       border-radius: 12px;
-      height: auto;
+      margin-bottom: 1rem;
     }
 
-    .product-card h3 {
-      margin: 1rem 0 0.5rem;
+    .yarn-item h3 {
       color: #d4623c;
-      font-size: 1.3rem;
-    }
-
-    .product-card p {
       margin: 0.5rem 0;
     }
 
-    .price {
-      font-weight: bold;
-      color: #ec6e4c;
+    .yarn-item p {
+      font-size: 0.95rem;
+      color: #5c4633;
+    }
+
+    .yarn-item select {
+      padding: 0.3rem;
       margin-top: 0.5rem;
     }
 
-    select, button {
-      margin-top: 0.5rem;
-      padding: 0.4rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
+    .buy-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
       background-color: #f8a488;
-      color: white;
-      border: none;
-      cursor: pointer;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
-    button:hover {
+    .buy-button:hover {
       background-color: #ec6e4c;
     }
 
@@ -109,7 +109,7 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
 
     footer a {
@@ -138,7 +138,7 @@
 </head>
 <body>
 
-  <!-- SVG Blobs -->
+  <!-- SVG Blob Overlays -->
   <svg class="blob blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <path fill="#ffbfa3" d="M38.6,-65.1C52.3,-58.1,67.6,-52.5,72.1,-41.4C76.6,-30.3,70.3,-13.6,67.4,3.4C64.6,20.4,65.2,37.6,56.9,47.9C48.6,58.1,31.3,61.5,15.3,63.5C-0.6,65.4,-15.1,66,-30.5,61.8C-45.8,57.7,-62,48.7,-67.4,36.1C-72.8,23.5,-67.5,7.2,-64.1,-9.7C-60.8,-26.6,-59.5,-43.9,-49.5,-51.9C-39.4,-59.9,-19.7,-58.7,-2.1,-55.9C15.5,-53.1,31,-48.7,38.6,-65.1Z" transform="translate(100 100)" />
   </svg>
@@ -157,45 +157,36 @@
   </nav>
 
   <h1>Our Yarns</h1>
+  <p class="description">
+    For stitchers, dreamers, and late-night row counters — our yarns are made to inspire! Find the perfect texture and tone for every creation.
+  </p>
 
-  <div class="container">
-    <div class="product-grid">
-      <!-- Cream Yarn -->
-      <div class="product-card">
-        <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
-        <h3>Cream Yarn</h3>
-        <p>Color: 458</p>
-        <p>100g • 55% cotton, 45% acrylic</p>
-        <p class="price">15 AED</p>
-        <label>Quantity:
-          <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </label>
-        <br>
-        <button>Buy Now</button>
-      </div>
+  <div class="yarn-grid">
+    <div class="yarn-item">
+      <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
+      <h3>Cream Yarn</h3>
+      <p>100g — 55% cotton, 45% acrylic<br>Color: 458</p>
+      <label for="creamQty">Quantity:</label>
+      <select id="creamQty" name="creamQty">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br>
+      <a href="#" class="buy-button">Buy Now - 15 AED</a>
+    </div>
 
-      <!-- Multicolor Yarn -->
-      <div class="product-card">
-        <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
-        <h3>Multicolor Yarn</h3>
-        <p>Color: 2970</p>
-        <p>100g • 80% acrylic, 20% wool</p>
-        <p class="price">15 AED</p>
-        <label>Quantity:
-          <select>
-            <option>1</option>
-            <option>2</option>
-          </select>
-        </label>
-        <br>
-        <button>Buy Now</button>
-      </div>
+    <div class="yarn-item">
+      <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
+      <h3>Multicolor Yarn</h3>
+      <p>100g — 80% acrylic, 20% wool<br>Color: 2970</p>
+      <label for="multiQty">Quantity:</label>
+      <select id="multiQty" name="multiQty">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select><br>
+      <a href="#" class="buy-button">Buy Now - 15 AED</a>
     </div>
   </div>
 
@@ -203,6 +194,5 @@
     <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
     <p><a href="policy.html">Privacy Policy</a></p>
   </footer>
-
 </body>
 </html>
