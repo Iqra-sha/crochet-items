@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yarns - Hooked by K&A</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=DynaPuff&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fff6ec;
+      color: #4b3b2a;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background-color: #f8a488;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-family: 'DynaPuff', cursive;
+      text-align: center;
+      color: #ec6e4c;
+      margin: 2rem 0 1rem;
+      font-size: 2.5rem;
+    }
+
+    .product-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      color: #ec6e4c;
+      margin-top: 0.5rem;
+    }
+
+    .quantity {
+      font-size: 1rem;
+      color: #5a4032;
+      margin-top: 0.5rem;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #5a4032;
+      margin-top: 1rem;
+    }
+
+    .buy-button {
+      background-color: #ec6e4c;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      margin-top: 0.7rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: #d85b3e;
+    }
+
+    footer {
+      background-color: #ffd8b1;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #4b3b2a;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#products">Shop</a>
+    <a href="contact.html">Contact</a>
+    <a href="order.html">Custom Order</a>
+  </nav>
+
+  <h1>Our Yarns</h1>
+
+  <!-- Yarns Product Gallery -->
+  <section class="product-gallery">
+    <div class="product-card">
+      <img src="iqra/cream.jpg" alt="Cream Yarn">
+      <div class="product-name">Cream Yarn</div>
+      <div class="price">15 AED</div>
+      <div class="quantity">100g</div>
+      <div class="description">
+        Alize Cotton Gold — Color 458, 55% Cotton, 45% Acrylic
+      </div>
+      <button class="buy-button" onclick="addToCart('Cream Yarn', 15)">Buy Now</button>
+    </div>
+
+    <div class="product-card">
+      <img src="iqra/multicolor.jpg" alt="Multicolor Yarn">
+      <div class="product-name">Multicolor Yarn</div>
+      <div class="price">15 AED</div>
+      <div class="quantity">100g</div>
+      <div class="description">
+        Angora Gold Batik — Color 2970, 80% Acrylic, 20% Wool
+      </div>
+      <button class="buy-button" onclick="addToCart('Multicolor Yarn', 15)">Buy Now</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
+    <p><a href="policy.html">Privacy Policy</a></p>
+  </footer>
+
+  <!-- Cart Functionality Script -->
+  <script>
+    let cart = [];
+
+    function addToCart(product, price) {
+      const item = { product, price, quantity: 1 };
+      cart.push(item);
+      alert(`${product} has been added to your cart!`);
+      console.log(cart); // For debugging, shows the cart in the console
+    }
+  </script>
+
+</body>
+</html>
