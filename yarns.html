@@ -10,15 +10,12 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fff6ec;
       color: #4b3b2a;
-      position: relative;
-      overflow-x: hidden;
     }
 
     nav {
       background-color: #f8a488;
       padding: 1rem;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     nav a {
@@ -29,41 +26,54 @@
       font-size: 1.1rem;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     h1 {
       font-family: 'DynaPuff', cursive;
       text-align: center;
       color: #ec6e4c;
-      margin: 2rem 0 1rem;
-      font-size: 2.5rem;
+      margin: 2rem 0;
     }
 
-    .product {
-      text-align: center;
+    .yarn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
       padding: 2rem;
-      background-color: #ffffff;
-      border-radius: 16px;
-      margin: 1rem auto;
-      max-width: 400px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
 
-    .product img {
+    .yarn {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .yarn img {
       width: 100%;
+      height: auto;
       border-radius: 8px;
     }
 
-    .product h2 {
+    .yarn h3 {
+      margin: 0.5rem 0 0.25rem;
       color: #d4623c;
-      font-size: 2rem;
     }
 
-    .product p {
-      color: #4b3b2a;
-      font-size: 1.1rem;
+    .yarn p {
+      margin: 0.25rem 0;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background-color: #f8a488;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     footer {
@@ -78,11 +88,17 @@
       color: #4b3b2a;
       text-decoration: underline;
     }
+
+    .note {
+      text-align: center;
+      font-style: italic;
+      margin-top: -1rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -92,24 +108,32 @@
   </nav>
 
   <h1>Yarns</h1>
+  <p class="note">Each yarn listed below weighs 100g</p>
 
-  <section class="product">
-    <h2>Alize Cotton Gold - Color 458</h2>
-    <img src="Iqra/cream.jpg" alt="Alize Cotton Gold Yarn">
-    <p><strong>Price:</strong> 15 AED for both skeins (100g each)</p>
-    <p><strong>Composition:</strong> 55% Cotton, 45% Acrylic</p>
-    <p><strong>Note:</strong> Ideal for lightweight projects, not for plushies.</p>
-    <button>Buy Now</button>
-  </section>
+  <div class="yarn-container">
+    <div class="yarn">
+      <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
+      <h3>Cream Yarn</h3>
+      <p>Alize Cotton Gold</p>
+      <p>Color: 458</p>
+      <p>55% Cotton, 45% Acrylic</p>
+      <p>Price: 15 AED</p>
+      <p>Quantity: 1</p>
+      <a class="buy-button" href="#">Buy Now</a>
+    </div>
 
-  <section class="product">
-    <h2>Angora Gold Batik - Color 2970</h2>
-    <img src="Iqra/multicolor.jpg.jpg" alt="Angora Gold Batik Yarn">
-    <p><strong>Price:</strong> 15 AED for both skeins (100g each)</p>
-    <p><strong>Composition:</strong> 80% Acrylic, 20% Wool</p>
-    <p><strong>Note:</strong> Not suitable for plushies, ideal for soft garments and accessories.</p>
-    <button>Buy Now</button>
-  </section>
+    <div class="yarn">
+      <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
+      <h3>Multicolor Yarn</h3>
+      <p>Angora Gold Batik</p>
+      <p>Color: 2970</p>
+      <p>80% Acrylic, 20% Wool</p>
+      <p><em>Not suitable for plushies</em></p>
+      <p>Price: 15 AED</p>
+      <p>Quantity: 1</p>
+      <a class="buy-button" href="#">Buy Now</a>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
