@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart - Hooked by K&A</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=DynaPuff&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fff6ec;
+      color: #4b3b2a;
+    }
+
+    nav {
+      background-color: #f8a488;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    h1 {
+      font-family: 'DynaPuff', cursive;
+      text-align: center;
+      color: #ec6e4c;
+      margin-top: 2rem;
+      font-size: 2.5rem;
+    }
+
+    .cart-items {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      background-color: #ffd8b1;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #4b3b2a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#products">Shop</a>
+    <a href="contact.html">Contact</a>
+    <a href="order.html">Custom Order</a>
+    <a href="cart.html">Cart 🛒</a>
+  </nav>
+
+  <h1>Your Cart</h1>
+
+  <div class="cart-items" id="cartItems">
+    <!-- Cart items will appear here -->
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
+    <p><a href="policy.html">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const cartItemsContainer = document.getElementById('cartItems');
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = "<p>Your cart is empty!</p>";
+    } else {
+      cart.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <span>${item.name}</span>
+          <span>Quantity: ${item.quantity}</span>
+        `;
+        cartItemsContainer.appendChild(div);
+      });
+    }
+  </script>
+
+</body>
+</html>
