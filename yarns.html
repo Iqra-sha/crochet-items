@@ -210,46 +210,7 @@
   </footer>
 
   <!-- Cart JavaScript -->
-  <script>
-    const cart = [];
-
-    function updateCartCount() {
-      document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-    }
-
-    function addToCart(name, price, selectId) {
-      const quantity = parseInt(document.getElementById(selectId).value);
-      const existingItem = cart.find(item => item.name === name);
-
-      if (existingItem) {
-        existingItem.quantity += quantity;
-      } else {
-        cart.push({ name, price, quantity });
-      }
-
-      updateCartCount();
-      alert(`${name} added to cart (${quantity})`);
-    }
-
-    document.querySelectorAll('.product button').forEach((button) => {
-      button.addEventListener('click', () => {
-        const product = button.closest('.product');
-        const name = product.querySelector('h3').textContent;
-        const priceText = product.querySelector('p:nth-of-type(3)').textContent;
-        const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
-        const selectId = product.querySelector('select').id;
-        addToCart(name, price, selectId);
-      });
-    });
-
-    document.getElementById('viewCart').addEventListener('click', (e) => {
-      e.preventDefault();
-      let cartText = cart.length
-        ? cart.map(item => `${item.name} - ${item.quantity} x AED ${item.price} = AED ${item.quantity * item.price}`).join('\n')
-        : 'Cart is empty.';
-      alert(cartText);
-    });
-  </script>
+<script src="cart.js"></script>
 
 </body>
 </html>
