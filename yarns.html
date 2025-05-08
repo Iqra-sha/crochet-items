@@ -68,7 +68,8 @@
 
     .product img {
       width: 100%;
-      height: auto;
+      height: 250px;
+      object-fit: cover;
       border-radius: 12px;
     }
 
@@ -153,12 +154,13 @@
     <a href="index.html#products">Shop</a>
     <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
+    <a href="#" id="viewCart">Cart 🛒 (<span id="cartCount">0</span>)</a>
   </nav>
 
   <h1>Yarns</h1>
 
   <div class="description">
-    For stitchers, dreamers, and late-night row counters — our yarns are made to inspire! Find the perfect texture and tone for every creation.
+    For stitchers, dreamers, and late-night row counters, our yarns are made to inspire! Find the perfect texture and tone for every creation.
   </div>
 
   <div class="products">
@@ -170,11 +172,7 @@
       <p>Price: AED 15</p>
       <label for="creamQty">Quantity:</label>
       <select id="creamQty">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
       </select><br>
       <button>Add to Cart</button>
     </div>
@@ -187,24 +185,20 @@
       <p>Price: AED 15</p>
       <label for="multiQty">Quantity:</label>
       <select id="multiQty">
-        <option>1</option>
-        <option>2</option>
+        <option>1</option><option>2</option>
       </select><br>
       <button>Add to Cart</button>
     </div>
     
- <div class="product">
+    <div class="product">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/green.jpg?raw=true" alt="Green Yarn">
       <h3>Alize Diva - Color 852</h3>
       <p>100% Microfiber Acrylic</p>
       <p>100g</p>
       <p>Price: AED 15</p>
-      <label for="creamQty">Quantity:</label>
-      <select id="creamQty">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+      <label for="greenQty">Quantity:</label>
+      <select id="greenQty">
+        <option>1</option><option>2</option><option>3</option><option>4</option>
       </select><br>
       <button>Add to Cart</button>
     </div>
@@ -214,6 +208,48 @@
     <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
     <p><a href="policy.html">Privacy Policy</a></p>
   </footer>
+
+  <!-- Cart JavaScript -->
+  <script>
+    const cart = [];
+
+    function updateCartCount() {
+      document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    function addToCart(name, price, selectId) {
+      const quantity = parseInt(document.getElementById(selectId).value);
+      const existingItem = cart.find(item => item.name === name);
+
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({ name, price, quantity });
+      }
+
+      updateCartCount();
+      alert(`${name} added to cart (${quantity})`);
+    }
+
+    document.querySelectorAll('.product button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const product = button.closest('.product');
+        const name = product.querySelector('h3').textContent;
+        const priceText = product.querySelector('p:nth-of-type(3)').textContent;
+        const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+        const selectId = product.querySelector('select').id;
+        addToCart(name, price, selectId);
+      });
+    });
+
+    document.getElementById('viewCart').addEventListener('click', (e) => {
+      e.preventDefault();
+      let cartText = cart.length
+        ? cart.map(item => `${item.name} - ${item.quantity} x AED ${item.price} = AED ${item.quantity * item.price}`).join('\n')
+        : 'Cart is empty.';
+      alert(cartText);
+    });
+  </script>
 
 </body>
 </html>
