@@ -22,6 +22,18 @@ function removeFromCart(productName) {
   displayCart(); // Refresh the cart display
 }
 
+// Function to update item quantity in the cart
+function updateQuantity(productName, newQuantity) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const product = cart.find(item => item.name === productName);
+  
+  if (product) {
+    product.quantity = newQuantity;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart(); // Refresh the cart after update
+  }
+}
+
 // Function to display cart items in cart.html
 function displayCart() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -41,12 +53,13 @@ function displayCart() {
     cartItem.innerHTML = `
       <div>
         <h3>${item.name}</h3>
-        <p>Quantity: ${item.quantity}</p>
-        <p><span>Price: AED 15</span></p>
+        <p>Price: AED 15</p>
+        <p>Subtotal: AED ${itemTotal}</p>
       </div>
       <div>
-        <p><strong>Subtotal: AED ${itemTotal}</strong></p>
-        <button onclick="removeFromCart('${item.name}')" style="background-color:#ec6e4c;color:#fff;border:none;padding:0.4rem 0.8rem;border-radius:6px;cursor:pointer;">Remove</button>
+        <label for="quantity-${item.name}">Quantity:</label>
+        <input type="number" id="quantity-${item.name}" value="${item.quantity}" min="1" onchange="updateQuantity('${item.name}', parseInt(this.value))">
+        <button onclick="removeFromCart('${item.name}')">Remove</button>
       </div>
     `;
 
