@@ -10,7 +10,6 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fff6ec;
       color: #4b3b2a;
-      position: relative;
       overflow-x: hidden;
     }
 
@@ -48,28 +47,56 @@
     }
 
     .cart-item {
-      display: flex;
-      justify-content: space-between;
+      background: #ffffff;
       padding: 1rem;
-      border-bottom: 1px solid #ec6e4c;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
     }
 
     .cart-item h3 {
-      margin: 0;
+      margin: 0 0 0.5rem;
+      color: #ec6e4c;
     }
 
     .cart-item p {
-      margin: 0;
+      margin: 0.3rem 0;
     }
 
-    .cart-item span {
-      font-weight: bold;
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .cart-item button {
+      font-size: 1rem;
+      padding: 0.3rem 0.6rem;
+      background-color: #f8a488;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .cart-item button:disabled {
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+
+    .remove-btn {
+      margin-top: 0.5rem;
+      background-color: #ec6e4c;
     }
 
     .total-price {
       font-size: 1.2rem;
-      margin-top: 1rem;
       font-weight: bold;
+      text-align: right;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-top: 2px solid #ec6e4c;
     }
 
     footer {
@@ -88,7 +115,6 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -101,21 +127,83 @@
   <h1>Your Cart</h1>
 
   <div class="cart-container" id="cartContainer">
-    <!-- Cart items will be displayed here -->
+    <!-- Cart items will be injected here -->
   </div>
 
   <div class="total-price" id="totalPrice">Total: AED 0</div>
 
   <footer>
-    <p>&copy; 2025 Hooked by K&A. All rights reserved.</p>
+    <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
     <p><a href="privacy-policy.html">Privacy Policy</a></p>
   </footer>
 
-  <script src="cart.js"></script>
-  <div style="text-align: center; margin-top: 2rem;">
-  <button onclick="checkoutWhatsApp()" style="background-color: #25D366; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
-    Checkout via WhatsApp
-  </button>
-</div>
+  <script>
+    function addToCart(productName, quantity) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingProductIndex = cart.findIndex(item => item.name === productName);
+      if (existingProductIndex >= 0) {
+        cart[existingProductIndex].quantity += quantity;
+      } else {
+        cart.push({ name: productName, quantity });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${productName} has been added to your cart!`);
+    }
+
+    function displayCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartContainer = document.getElementById('cartContainer');
+      const totalPriceElement = document.getElementById('totalPrice');
+
+      cartContainer.innerHTML = '';
+      let totalPrice = 0;
+
+      cart.forEach((item, index) => {
+        const itemTotal = 15 * item.quantity;
+        totalPrice += itemTotal;
+
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+
+        cartItem.innerHTML = `
+          <h3>${item.name}</h3>
+          <div class="cart-controls">
+            <button onclick="updateQuantity('${item.name}', ${item.quantity - 1})" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+            <span>${item.quantity}</span>
+            <button onclick="updateQuantity('${item.name}', ${item.quantity + 1})">+</button>
+          </div>
+          <p>Subtotal: AED ${itemTotal}</p>
+          <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
+        `;
+
+        cartContainer.appendChild(cartItem);
+      });
+
+      totalPriceElement.textContent = `Total: AED ${totalPrice}`;
+    }
+
+    function updateQuantity(productName, newQuantity) {
+      if (newQuantity < 1) return;
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const productIndex = cart.findIndex(item => item.name === productName);
+      if (productIndex >= 0) {
+        cart[productIndex].quantity = newQuantity;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+      }
+    }
+
+    function removeFromCart(productName) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart = cart.filter(item => item.name !== productName);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    if (window.location.pathname.includes('cart.html')) {
+      displayCart();
+    }
+  </script>
 </body>
 </html>
+
