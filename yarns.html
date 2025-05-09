@@ -140,8 +140,26 @@
       text-decoration: underline;
     }
 
-    /* Blob styles */
-    .blob {
+    .svg-overlay {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .svg-top {
+      top: 0;
+      left: 0;
+    }
+
+    .svg-bottom {
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Abstract SVG Blobs -->
+.blob {
       position: absolute;
       z-index: -1;
       opacity: 0.25;
@@ -189,36 +207,93 @@
 
   <div class="products">
     <div class="product">
-      <img src="yarn1.jpg" alt="Yarn 1" />
-      <h3>Soft Cotton Yarn</h3>
-      <p>Soft cotton yarn perfect for light and cozy projects. Available in pastel shades.</p>
+      <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
+      <h3>Alize Cotton Gold - Color 458</h3>
+      <p>55% cotton, 45% acrylic</p>
+      <p>100g • AED 15</p>
       <div class="quantity-control">
         <button onclick="decreaseQuantity(this)">-</button>
-        <input class="qty-input" type="number" value="1" min="1" max="5" />
+        <input type="number" class="qty-input" value="1" min="1" max="5" readonly>
         <button onclick="increaseQuantity(this)">+</button>
       </div>
-      <button class="add-to-cart" onclick="addToCart('Soft Cotton Yarn', this)">Add to Cart</button>
+      <button class="add-to-cart" onclick="addToCart('Alize Cotton Gold - Color 458', this)">Add to Cart</button>
     </div>
 
     <div class="product">
-      <img src="yarn2.jpg" alt="Yarn 2" />
-      <h3>Wool Blend Yarn</h3>
-      <p>Warm and soft wool blend yarn for fall and winter projects. Available in rich tones.</p>
+      <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
+      <h3>Alize Angora Gold - Color 2970</h3>
+      <p>80% acrylic, 20% wool</p>
+      <p>100g • AED 15</p>
       <div class="quantity-control">
         <button onclick="decreaseQuantity(this)">-</button>
-        <input class="qty-input" type="number" value="1" min="1" max="5" />
+        <input type="number" class="qty-input" value="1" min="1" max="5" readonly>
         <button onclick="increaseQuantity(this)">+</button>
       </div>
-      <button class="add-to-cart" onclick="addToCart('Wool Blend Yarn', this)">Add to Cart</button>
+      <button class="add-to-cart" onclick="addToCart('Alize Angora Gold - Color 2970', this)">Add to Cart</button>
     </div>
 
-    <!-- More product entries go here as needed -->
+    <div class="product">
+      <img src="https://github.com/Iqra-sha/crochet-items/blob/main/green.jpg?raw=true" alt="Green Yarn">
+      <h3>Alize Diva - Color 852</h3>
+      <p>100% Microfiber Acrylic</p>
+      <p>100g • AED 15</p>
+      <div class="quantity-control">
+        <button onclick="decreaseQuantity(this)">-</button>
+        <input type="number" class="qty-input" value="1" min="1" max="5" readonly>
+        <button onclick="increaseQuantity(this)">+</button>
+      </div>
+      <button class="add-to-cart" onclick="addToCart('Alize Diva - Color 852', this)">Add to Cart</button>
+    </div>
   </div>
 
   <footer>
     <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
     <p><a href="policy.html">Privacy Policy</a></p>
   </footer>
+
+  <script>
+    function decreaseQuantity(button) {
+      const input = button.parentNode.querySelector('.qty-input');
+      let value = parseInt(input.value);
+      if (value > 1) {
+        input.value = value - 1;
+      }
+    }
+
+    function increaseQuantity(button) {
+      const input = button.parentNode.querySelector('.qty-input');
+      let value = parseInt(input.value);
+      if (value < 5) {
+        input.value = value + 1;
+      } else {
+        alert("You can only add up to 5 of this item.");
+      }
+    }
+
+    function addToCart(productName, button) {
+      const qtyInput = button.previousElementSibling.querySelector('.qty-input');
+      const quantity = parseInt(qtyInput.value);
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingProductIndex = cart.findIndex(item => item.name === productName);
+
+      if (existingProductIndex >= 0) {
+        cart[existingProductIndex].quantity += quantity;
+        if (cart[existingProductIndex].quantity > 5) {
+          cart[existingProductIndex].quantity = 5;
+          alert("Maximum limit for this item in cart is 5.");
+        }
+      } else {
+        cart.push({ name: productName, quantity });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(${productName} added to your cart!);
+    }
+  </script>
+
+</body>
+</html>
 
   <script>
     function decreaseQuantity(button) {
