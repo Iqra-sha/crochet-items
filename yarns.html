@@ -29,10 +29,6 @@
       font-size: 1.1rem;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     h1 {
       font-family: 'DynaPuff', cursive;
       text-align: center;
@@ -72,37 +68,6 @@
       border-radius: 12px;
     }
 
-    .product h3 {
-      margin: 1rem 0 0.5rem;
-      font-size: 1.2rem;
-      color: #ec6e4c;
-    }
-
-    .product p {
-      margin: 0.5rem 0;
-      font-size: 1rem;
-    }
-
-    .product select, .product button {
-      margin-top: 0.5rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ec6e4c;
-    }
-
-    .product button {
-      background-color: #f8a488;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    .product button:hover {
-      background-color: #ec6e4c;
-    }
-
     footer {
       background-color: #ffd8b1;
       text-align: center;
@@ -135,63 +100,60 @@
   </div>
 
   <div class="products">
-    <!-- Product 1 -->
     <div class="product">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
       <h3>Alize Cotton Gold - Color 458</h3>
-      <p>55% cotton, 45% acrylic</p>
-      <p>100g</p>
+      <p>55% cotton, 45% acrylic — 100g</p>
       <p>Price: AED 15</p>
       <label for="creamQty">Quantity:</label>
       <select id="creamQty">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select><br>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      </select>
       <button onclick="addToCart('Alize Cotton Gold - Color 458', parseInt(document.getElementById('creamQty').value), 'https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true')">Add to Cart</button>
     </div>
 
-    <!-- Product 2 -->
     <div class="product">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
       <h3>Alize Angora Gold - Color 2970</h3>
-      <p>80% acrylic, 20% wool</p>
-      <p>100g</p>
+      <p>80% acrylic, 20% wool — 100g</p>
       <p>Price: AED 15</p>
       <label for="multiQty">Quantity:</label>
       <select id="multiQty">
-        <option>1</option>
-        <option>2</option>
-      </select><br>
+        <option>1</option><option>2</option>
+      </select>
       <button onclick="addToCart('Alize Angora Gold - Color 2970', parseInt(document.getElementById('multiQty').value), 'https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true')">Add to Cart</button>
     </div>
 
-    <!-- Product 3 -->
     <div class="product">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/green.jpg?raw=true" alt="Green Yarn">
       <h3>Alize Diva - Color 852</h3>
-      <p>100% Microfiber Acrylic</p>
-      <p>100g</p>
+      <p>100% Microfiber Acrylic — 100g</p>
       <p>Price: AED 15</p>
       <label for="greenQty">Quantity:</label>
       <select id="greenQty">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select><br>
+        <option>1</option><option>2</option><option>3</option><option>4</option>
+      </select>
       <button onclick="addToCart('Alize Diva - Color 852', parseInt(document.getElementById('greenQty').value), 'https://github.com/Iqra-sha/crochet-items/blob/main/green.jpg?raw=true')">Add to Cart</button>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
-    <p><a href="policy.html">Privacy Policy</a></p>
+    <p>&copy; 2025 Hooked by K&A. All rights reserved.</p>
+    <p><a href="privacy-policy.html">Privacy Policy</a></p>
   </footer>
 
-  <script src="cart.js"></script>
-
+  <script>
+    function addToCart(name, quantity, image) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const index = cart.findIndex(item => item.name === name);
+      if (index !== -1) {
+        cart[index].quantity += quantity;
+      } else {
+        cart.push({ name, quantity, image });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to your cart!`);
+    }
+  </script>
 </body>
 </html>
