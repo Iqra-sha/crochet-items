@@ -10,6 +10,7 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fff6ec;
       color: #4b3b2a;
+      position: relative;
       overflow-x: hidden;
     }
 
@@ -63,6 +64,7 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.08);
       padding: 1rem;
       text-align: center;
+      position: relative;
     }
 
     .product img {
@@ -83,50 +85,46 @@
     }
 
     .quantity-control {
-      display: inline-flex;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 0.4rem;
-      margin: 0.5rem 0;
+      margin-top: 0.5rem;
     }
 
-    .qty-btn {
-      padding: 0.4rem 0.8rem;
-      font-size: 1.2rem;
+    .quantity-control button {
       background-color: #f8a488;
-      color: white;
       border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .qty-btn:hover {
-      background-color: #ec6e4c;
-    }
-
-    .qty-input {
-      width: 2.5rem;
-      text-align: center;
-      border: none;
-      background: #fff6ec;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-
-    .add-to-cart-btn {
-      padding: 0.6rem 1rem;
-      background-color: #ec6e4c;
-      color: white;
-      font-weight: bold;
-      border: none;
+      color: #fff;
+      padding: 0.3rem 0.8rem;
+      font-size: 1.2rem;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      transition: background 0.3s;
     }
 
-    .add-to-cart-btn:hover {
-      background-color: #d75b3b;
+    .quantity-control input {
+      width: 40px;
+      text-align: center;
+      font-size: 1rem;
+      margin: 0 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.3rem;
+    }
+
+    .add-to-cart {
+      background-color: #f8a488;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #ec6e4c;
     }
 
     footer {
@@ -141,10 +139,35 @@
       color: #4b3b2a;
       text-decoration: underline;
     }
+
+    .svg-overlay {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .svg-top {
+      top: 0;
+      left: 0;
+    }
+
+    .svg-bottom {
+      bottom: 0;
+      right: 0;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Abstract SVG Blobs -->
+  <svg class="svg-overlay svg-top" width="300" height="300" viewBox="0 0 200 200">
+    <path fill="#ffd8b1" d="M43.2,-69.2C54.6,-59.4,61.9,-44.7,66.7,-30C71.6,-15.2,73.9,-0.5,72.1,14.7C70.4,29.9,64.5,45.6,53.4,56.2C42.2,66.9,25.9,72.6,9.4,69.6C-7.2,66.5,-14.4,54.6,-25.4,46.6C-36.4,38.7,-51.2,34.7,-60.5,24.5C-69.7,14.2,-73.4,-2.3,-66.4,-12.3C-59.3,-22.4,-41.5,-25.9,-28.4,-33.6C-15.4,-41.4,-7.7,-53.4,5.2,-60.1C18.1,-66.9,36.2,-68.9,43.2,-69.2Z" transform="translate(100 100)" />
+  </svg>
+
+  <svg class="svg-overlay svg-bottom" width="300" height="300" viewBox="0 0 200 200">
+    <path fill="#f8a488" d="M35.3,-58.1C46.5,-50.1,56.4,-41.1,60.1,-29.6C63.8,-18.2,61.2,-4.2,56.6,8.9C52,22,45.3,34.2,35.2,42.7C25,51.3,11.5,56.1,-2.6,59.5C-16.8,62.9,-33.6,65,-43.7,57.2C-53.9,49.4,-57.4,31.8,-59.2,15.3C-61,-1.2,-61,-16.5,-54.5,-27.5C-48.1,-38.5,-35.2,-45.3,-22.7,-52.3C-10.1,-59.4,1.9,-66.7,14.9,-67.6C27.9,-68.6,41.9,-63.3,35.3,-58.1Z" transform="translate(100 100)" />
+  </svg>
+
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -164,40 +187,40 @@
     <div class="product">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/cream.jpg?raw=true" alt="Cream Yarn">
       <h3>Alize Cotton Gold - Color 458</h3>
-      <p>55% cotton, 45% acrylic · 100g</p>
-      <p>Price: AED 15</p>
+      <p>55% cotton, 45% acrylic</p>
+      <p>100g • AED 15</p>
       <div class="quantity-control">
-        <button class="qty-btn" onclick="decreaseQuantity(this)">−</button>
-        <input type="number" class="qty-input" value="1" readonly>
-        <button class="qty-btn" onclick="increaseQuantity(this)">+</button>
+        <button onclick="decreaseQuantity(this)">-</button>
+        <input type="number" class="qty-input" value="1" min="1" max="5" readonly>
+        <button onclick="increaseQuantity(this)">+</button>
       </div>
-      <button class="add-to-cart-btn" onclick="addToCart('Alize Cotton Gold - Color 458', getQuantity(this))">🧺 Add to Cart</button>
+      <button class="add-to-cart" onclick="addToCart('Alize Cotton Gold - Color 458', this)">Add to Cart</button>
     </div>
 
     <div class="product">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/multicolor.jpg?raw=true" alt="Multicolor Yarn">
       <h3>Alize Angora Gold - Color 2970</h3>
-      <p>80% acrylic, 20% wool · 100g</p>
-      <p>Price: AED 15</p>
+      <p>80% acrylic, 20% wool</p>
+      <p>100g • AED 15</p>
       <div class="quantity-control">
-        <button class="qty-btn" onclick="decreaseQuantity(this)">−</button>
-        <input type="number" class="qty-input" value="1" readonly>
-        <button class="qty-btn" onclick="increaseQuantity(this)">+</button>
+        <button onclick="decreaseQuantity(this)">-</button>
+        <input type="number" class="qty-input" value="1" min="1" max="5" readonly>
+        <button onclick="increaseQuantity(this)">+</button>
       </div>
-      <button class="add-to-cart-btn" onclick="addToCart('Alize Angora Gold - Color 2970', getQuantity(this))">🧺 Add to Cart</button>
+      <button class="add-to-cart" onclick="addToCart('Alize Angora Gold - Color 2970', this)">Add to Cart</button>
     </div>
 
     <div class="product">
       <img src="https://github.com/Iqra-sha/crochet-items/blob/main/green.jpg?raw=true" alt="Green Yarn">
       <h3>Alize Diva - Color 852</h3>
-      <p>100% Microfiber Acrylic · 100g</p>
-      <p>Price: AED 15</p>
+      <p>100% Microfiber Acrylic</p>
+      <p>100g • AED 15</p>
       <div class="quantity-control">
-        <button class="qty-btn" onclick="decreaseQuantity(this)">−</button>
-        <input type="number" class="qty-input" value="1" readonly>
-        <button class="qty-btn" onclick="increaseQuantity(this)">+</button>
+        <button onclick="decreaseQuantity(this)">-</button>
+        <input type="number" class="qty-input" value="1" min="1" max="5" readonly>
+        <button onclick="increaseQuantity(this)">+</button>
       </div>
-      <button class="add-to-cart-btn" onclick="addToCart('Alize Diva - Color 852', getQuantity(this))">🧺 Add to Cart</button>
+      <button class="add-to-cart" onclick="addToCart('Alize Diva - Color 852', this)">Add to Cart</button>
     </div>
   </div>
 
@@ -210,29 +233,42 @@
     function decreaseQuantity(button) {
       const input = button.parentNode.querySelector('.qty-input');
       let value = parseInt(input.value);
-      if (value > 1) input.value = value - 1;
+      if (value > 1) {
+        input.value = value - 1;
+      }
     }
 
     function increaseQuantity(button) {
       const input = button.parentNode.querySelector('.qty-input');
-      input.value = parseInt(input.value) + 1;
+      let value = parseInt(input.value);
+      if (value < 5) {
+        input.value = value + 1;
+      } else {
+        alert("You can only add up to 5 of this item.");
+      }
     }
 
-    function getQuantity(button) {
-      return parseInt(button.parentNode.querySelector('.qty-input').value);
-    }
-
-    function addToCart(productName, quantity) {
+    function addToCart(productName, button) {
+      const qtyInput = button.previousElementSibling.querySelector('.qty-input');
+      const quantity = parseInt(qtyInput.value);
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const existingIndex = cart.findIndex(item => item.name === productName);
-      if (existingIndex >= 0) {
-        cart[existingIndex].quantity += quantity;
+
+      const existingProductIndex = cart.findIndex(item => item.name === productName);
+
+      if (existingProductIndex >= 0) {
+        cart[existingProductIndex].quantity += quantity;
+        if (cart[existingProductIndex].quantity > 5) {
+          cart[existingProductIndex].quantity = 5;
+          alert("Maximum limit for this item in cart is 5.");
+        }
       } else {
         cart.push({ name: productName, quantity });
       }
+
       localStorage.setItem('cart', JSON.stringify(cart));
-      alert(`${productName} has been added to your cart!`);
+      alert(`${productName} added to your cart!`);
     }
   </script>
+
 </body>
 </html>
