@@ -6,20 +6,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=DynaPuff&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Quicksand', sans-serif;
-      background-color: #fff6ec; /* Soft warm beige */
-      color: #4b3b2a;
       margin: 0;
-      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fff6ec;
+      color: #4b3b2a;
       position: relative;
+      overflow-x: hidden;
     }
 
-    /* Navigation Bar */
     nav {
       background-color: #f8a488;
       padding: 1rem;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     nav a {
@@ -34,70 +33,50 @@
       text-decoration: underline;
     }
 
-    /* Welcome Section */
     h1 {
       font-family: 'DynaPuff', cursive;
-      text-align: center; /* Centers the title */
+      text-align: center;
       color: #ec6e4c;
       margin-top: 2rem;
       font-size: 2.5rem;
     }
 
-    p {
-      text-align: center; /* Centers the description text */
-      font-size: 1.2rem;
-      color: #4b3b2a;
-      margin: 1rem auto;
-      max-width: 800px; /* Optional: limits the width of the paragraph for better readability */
-    }
-
-    /* Product Cards */
-    .product-card {
-      display: inline-block;
-      background-color: #ffffff;
-      padding: 2rem;
-      margin: 1rem;
-      width: 220px;
-      height: 280px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    .description {
       text-align: center;
-      transition: transform 0.3s ease-in-out;
-      cursor: pointer;
+      font-size: 1.2rem;
+      margin: 1rem auto 2rem;
+      max-width: 600px;
     }
 
-    .product-card:hover {
-      transform: scale(1.05);
-    }
-
-    .product-card h3 {
-      color: #ec6e4c;
-      font-size: 1.4rem;
-      margin: 0.8rem 0;
-    }
-
-    .product-card p {
-      font-size: 1.1rem;
-      color: #4b3b2a;
-      margin: 0.5rem 0;
-    }
-
-    .product-card img {
-      width: 80%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    /* Container for Product Cards */
-    .products-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    #products {
+      max-width: 800px;
       margin: 2rem auto;
-      max-width: 1000px;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
 
-    /* Footer */
+    #products h2 {
+      text-align: center;
+      font-family: 'DynaPuff', cursive;
+      color: #ec6e4c;
+      margin-bottom: 1rem;
+    }
+
+    .product {
+      font-size: 1.1rem;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+
+    .product a {
+      text-decoration: none;
+      color: #4b3b2a;
+      font-weight: 600;
+    }
+
     footer {
       background-color: #ffd8b1;
       text-align: center;
@@ -111,7 +90,6 @@
       text-decoration: underline;
     }
 
-    /* Blob Overlays */
     .blob {
       position: absolute;
       z-index: -1;
@@ -133,7 +111,7 @@
 </head>
 <body>
 
-  <!-- SVG Blob Overlays -->
+  <!-- SVG Blob Backgrounds -->
   <svg class="blob blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <path fill="#ffbfa3" d="M38.6,-65.1C52.3,-58.1,67.6,-52.5,72.1,-41.4C76.6,-30.3,70.3,-13.6,67.4,3.4C64.6,20.4,65.2,37.6,56.9,47.9C48.6,58.1,31.3,61.5,15.3,63.5C-0.6,65.4,-15.1,66,-30.5,61.8C-45.8,57.7,-62,48.7,-67.4,36.1C-72.8,23.5,-67.5,7.2,-64.1,-9.7C-60.8,-26.6,-59.5,-43.9,-49.5,-51.9C-39.4,-59.9,-19.7,-58.7,-2.1,-55.9C15.5,-53.1,31,-48.7,38.6,-65.1Z" transform="translate(100 100)" />
   </svg>
@@ -145,51 +123,36 @@
   <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
     <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
   </nav>
 
-  <h1>Our Products</h1>
-  <p>Explore our cozy and cute handmade crochet creations!</p>
+  <!-- Page Title -->
+  <h1>Shop</h1>
 
-  <div class="products-container">
-    <div class="product-card">
-      <img src="images/yarns.jpg" alt="Yarns">
-      <h3>🧶 Yarns</h3>
-      <p>Explore our collection of high-quality yarns for your crochet projects.</p>
-    </div>
-    <div class="product-card">
-      <img src="images/bags.jpg" alt="Bags">
-      <h3>👜 Bags</h3>
-      <p>Stylish and sturdy bags to carry your crochet essentials in style.</p>
-    </div>
-    <div class="product-card">
-      <img src="images/mesh_tops.jpg" alt="Mesh Tops">
-      <h3>👚 Mesh Tops</h3>
-      <p>Breathable and trendy crochet mesh tops for all seasons.</p>
-    </div>
-    <div class="product-card">
-      <img src="images/keychains.jpg" alt="Keychains">
-      <h3>🔑 Keychains</h3>
-      <p>Adorable crochet keychains to add some charm to your keys!</p>
-    </div>
-    <div class="product-card">
-      <img src="images/baby_blankets.jpg" alt="Baby Blankets">
-      <h3>🍼 Baby Blankets</h3>
-      <p>Cozy, soft, and warm crochet baby blankets for your little ones.</p>
-    </div>
-    <div class="product-card">
-      <img src="images/baby_beanies_bonnets.jpg" alt="Baby Beanies & Bonnets">
-      <h3>🧢👒 Baby Beanies & Bonnets</h3>
-      <p>Adorable and comfy crochet beanies and bonnets for your little ones!</p>
-    </div>
+  <!-- Description -->
+  <div class="description">
+    For stitchers, dreamers, and late-night row counters — our creations are made to inspire! Browse our cozy collection below.
   </div>
+
+  <!-- Product List -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product"><a href="yarns.html">🧶 Yarns</a></div>
+    <div class="product"><a href="#">👜 Bags</a></div>
+    <div class="product"><a href="#">👚 Mesh Tops</a></div>
+    <div class="product"><a href="#">🔑 Keychains</a></div>
+    <div class="product"><a href="#">🍼 Baby Blankets</a></div>
+    <div class="product"><a href="#">🧥 Baby Cardigans</a></div>
+    <div class="product"><a href="#">🧢👒 Baby Beanies & Bonnets</a></div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Hooked by K&A | <a href="privacy-policy.html">Privacy Policy</a></p>
+    <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
+    <p><a href="policy.html">Privacy Policy</a></p>
   </footer>
 
 </body>
