@@ -10,6 +10,7 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fff6ec;
       color: #4b3b2a;
+      overflow-x: hidden;
     }
 
     nav {
@@ -36,6 +37,7 @@
       max-width: 900px;
       margin: 2rem auto;
       padding: 1rem;
+      overflow-x: hidden;
     }
 
     .cart-item {
@@ -44,16 +46,20 @@
       gap: 1rem;
       border-bottom: 1px solid #ec6e4c;
       padding: 1rem 0;
+      flex-wrap: wrap;
     }
 
     .cart-item img {
       width: 100px;
       height: auto;
+      max-width: 100%;
+      object-fit: cover;
       border-radius: 8px;
     }
 
     .cart-item-info {
       flex: 1;
+      min-width: 200px;
     }
 
     .cart-item-info h3 {
@@ -106,21 +112,22 @@
       color: #4b3b2a;
       text-decoration: underline;
     }
-  .blob {
+
+    .blob {
       position: absolute;
-      z-index: -1
+      z-index: -1;
     }
 
     .blob1 {
       top: -80px;
       left: -80px;
-      width: 350px;
+      width: 300px;
     }
 
     .blob2 {
       bottom: -40px;
-      right: -100px;
-      width: 350px;
+      right: -40px;
+      width: 300px;
     }
   </style>
 </head>
