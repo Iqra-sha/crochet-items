@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hooked by K&A</title>
+  <title>About - Hooked by K&A</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=DynaPuff&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background-color: #fff6ec;
+      background-color: #fff6ec; /* Soft warm beige */
       color: #4b3b2a;
       position: relative;
       overflow-x: hidden;
@@ -41,7 +41,7 @@
       font-size: 2.5rem;
     }
 
-    .intro {
+    .content {
       max-width: 800px;
       margin: 2rem auto;
       padding: 2rem;
@@ -50,7 +50,7 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
 
-    .intro p {
+    .content p {
       font-size: 1.1rem;
       line-height: 1.6;
     }
@@ -60,8 +60,7 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      position: relative;
-      z-index: 1;
+      margin-top: 2rem;
     }
 
     footer a {
@@ -69,9 +68,10 @@
       text-decoration: underline;
     }
 
+    /* Subtle abstract blob overlay */
     .blob {
       position: absolute;
-      z-index: 0;
+      z-index: -1;
       opacity: 0.25;
     }
 
@@ -82,15 +82,15 @@
     }
 
     .blob2 {
-      bottom: 0;
-      right: 0;
+      bottom: -100px;
+      right: -80px;
       width: 280px;
     }
   </style>
 </head>
 <body>
 
-  <!-- SVG Blobs -->
+  <!-- SVG Blob Overlays -->
   <svg class="blob blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <path fill="#ffbfa3" d="M38.6,-65.1C52.3,-58.1,67.6,-52.5,72.1,-41.4C76.6,-30.3,70.3,-13.6,67.4,3.4C64.6,20.4,65.2,37.6,56.9,47.9C48.6,58.1,31.3,61.5,15.3,63.5C-0.6,65.4,-15.1,66,-30.5,61.8C-45.8,57.7,-62,48.7,-67.4,36.1C-72.8,23.5,-67.5,7.2,-64.1,-9.7C-60.8,-26.6,-59.5,-43.9,-49.5,-51.9C-39.4,-59.9,-19.7,-58.7,-2.1,-55.9C15.5,-53.1,31,-48.7,38.6,-65.1Z" transform="translate(100 100)" />
   </svg>
@@ -103,17 +103,19 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="shop.html">Shop</a>
+    <a href="index.html#products">Shop</a>
     <a href="contact.html">Contact</a>
     <a href="order.html">Custom Order</a>
-    <a href="cart.html">Cart 🛒</a>
   </nav>
 
-  <h1>Welcome to Hooked by K&A</h1>
+  <h1>Hooked by K&A</h1>
 
-  <div class="intro">
-    <p>At <strong>Hooked by K&A</strong>, we turn yarn into cozy creations! From handmade bags and tops to plushies and keychains, every piece is stitched with love and sunshine. 🌞</p>
-    <p>Want something extra special? Check out our <a href="order.html">custom order</a> page or dive into our <a href="shop.html">Shop</a> for ready-to-love pieces.</p>
+  <div class="content">
+    <p>Hello and welcome to <strong>Hooked by K&A</strong> — where crochet gets cozy, cute, and handcrafted with care. 💖</p>
+    <p>Hooked by K&A is your go-to for all things cozy, cute, and crochet. We handcraft baby beanies, bonnets, and blankets that are perfect for snuggles, along with stylish mesh tops, trendy bags, and adorable keychains and hair clips to brighten up your everyday look. We also offer a lovely selection of yarns for fellow makers who love to crochet. Everything we make is filled with care, creativity, and warmth.</p>
+    <p>✨ handcrafted style, one stitch at a time.✨</p>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/cozyknots_2" target="_blank">@cozyknots_2</a><br>
+       <strong>Email:</strong> <a href="mailto:hookedbyka.crochet@gmail.com">hookedbyka.crochet@gmail.com</a></p>
   </div>
 
   <footer>
@@ -121,4 +123,4 @@
     <p><a href="policy.html">Privacy Policy</a></p>
   </footer>
 </body>
-</html>
+</html> 
