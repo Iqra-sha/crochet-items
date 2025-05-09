@@ -48,6 +48,7 @@
 
     .cart-item img {
       width: 100px;
+      height: auto;
       border-radius: 8px;
     }
 
@@ -56,22 +57,34 @@
     }
 
     .cart-item-info h3 {
-      margin: 0;
+      margin: 0 0 0.5rem 0;
     }
 
-    .cart-item-info input {
-      width: 60px;
-      padding: 0.3rem;
-      margin-right: 1rem;
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .quantity-controls button {
+      padding: 0.3rem 0.7rem;
+      background-color: #f8a488;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
     }
 
     .remove-btn {
       background: #ec6e4c;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 6px;
       cursor: pointer;
+      margin-top: 0.5rem;
     }
 
     .total-price {
@@ -132,9 +145,11 @@
           <div class="cart-item-info">
             <h3>${item.name}</h3>
             <p>Price: AED 15</p>
-            <label>Quantity: 
-              <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
-            </label>
+            <div class="quantity-controls">
+              <button onclick="updateQuantity(${index}, -1)">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="updateQuantity(${index}, 1)">+</button>
+            </div>
             <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
           </div>
         `;
@@ -145,9 +160,10 @@
       totalEl.textContent = `Total: AED ${total}`;
     }
 
-    function updateQuantity(index, newQty) {
+    function updateQuantity(index, delta) {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart[index].quantity = parseInt(newQty);
+      cart[index].quantity += delta;
+      if (cart[index].quantity < 1) cart[index].quantity = 1;
       localStorage.setItem('cart', JSON.stringify(cart));
       displayCart();
     }
