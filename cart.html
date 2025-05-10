@@ -141,7 +141,7 @@
   <svg class="blob blob2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <path fill="#f8a488" d="M42.3,-62.5C54.2,-53.7,63.6,-43.4,70.4,-30.4C77.3,-17.4,81.6,-1.7,77.5,12.6C73.5,26.9,61.2,39.8,48.1,47.5C35,55.2,21.1,57.7,6.4,57.6C-8.3,57.4,-16.6,54.5,-30.5,50.9C-44.5,47.3,-64.1,43,-72.8,32.1C-81.6,21.2,-79.5,3.6,-70.6,-9.9C-61.7,-23.3,-46,-32.5,-33.8,-41.4C-21.6,-50.2,-10.8,-58.6,2.7,-62.4C16.2,-66.2,32.4,-65.3,42.3,-62.5Z" transform="translate(100 100)" />
   </svg>
-
+  
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -156,95 +156,70 @@
   <div class="cart-container" id="cartContainer"></div>
   <div class="total-price" id="totalPrice">Total: AED 0</div>
 
-  <footer>
-    <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
-    <p>
-      <a href="policy.html">Privacy Policy</a> |
-      <a href="refund.html">Refund Policy</a> |
-      <a href="terms.html">Terms of Service</a>
-    </p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Hooked by K&A — Handmade with love</p>
+  <p>
+    <a href="policy.html">Privacy Policy</a> |
+    <a href="refund.html">Refund Policy</a> |
+    <a href="terms.html">Terms of Service</a>
+  </p>
+</footer>
 
-  <!-- Add the script at the end of the body -->
-  <script>
-    // Initialize cart
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Function to update cart display
-    function updateCart() {
-      const cartContainer = document.getElementById('cartContainer');
-      const totalPriceElement = document.getElementById('totalPrice');
-      
-      cartContainer.innerHTML = ''; // Clear current cart display
+ <script>
+  function displayCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById('cartContainer');
+    const totalEl = document.getElementById('totalPrice');
+    container.innerHTML = '';
+    let total = 0;
 
-      if (cart.length === 0) {
-        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-        totalPriceElement.textContent = 'Total: AED 0';
-        return;
-      }
+    if (cart.length === 0) {
+      container.innerHTML = '<p>Your cart is empty.</p>';
+      totalEl.textContent = '';
+      return;
+    }
 
-      let totalPrice = 0;
-
-      cart.forEach((item, index) => {
-        totalPrice += item.price * item.quantity;
-        cartContainer.innerHTML += `
-          <div class="cart-item">
-            <img src="${item.image}" alt="${item.name}" />
-            <div class="cart-item-info">
-              <h3>${item.name}</h3>
-              <p>Price: AED ${item.price}</p>
-              <div class="quantity-controls">
-                <button onclick="decreaseQuantity(${index})">-</button>
-                <span>${item.quantity}</span>
-                <button onclick="increaseQuantity(${index})">+</button>
-              </div>
-              <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
-            </div>
+    cart.forEach((item, index) => {
+      const itemEl = document.createElement('div');
+      itemEl.className = 'cart-item';
+      itemEl.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <div class="cart-item-info">
+          <h3>${item.name}</h3>
+          <p>Price: AED 15</p>
+          <div class="quantity-controls">
+            <button onclick="updateQuantity(${index}, -1)">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="updateQuantity(${index}, 1)">+</button>
           </div>
-        `;
-      });
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        </div>
+      `;
+      container.appendChild(itemEl);
+      total += item.quantity * 15;
+    });
 
-      totalPriceElement.textContent = `Total: AED ${totalPrice.toFixed(2)}`;
-    }
+    totalEl.textContent = `Total: AED ${total}`;
+  }
 
-    // Add item to cart
-    function addToCart(item) {
-      const existingItem = cart.find(cartItem => cartItem.name === item.name);
-      if (existingItem) {
-        existingItem.quantity++;
-      } else {
-        cart.push(item);
-      }
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCart();
-    }
+  function updateQuantity(index, delta) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart[index].quantity += delta;
+    if (cart[index].quantity < 1) cart[index].quantity = 1;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+  }
 
-    // Remove item from cart
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCart();
-    }
+  function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+  }
 
-    // Increase item quantity
-    function increaseQuantity(index) {
-      cart[index].quantity++;
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCart();
-    }
+  window.onload = displayCart;
+</script>
 
-    // Decrease item quantity
-    function decreaseQuantity(index) {
-      if (cart[index].quantity > 1) {
-        cart[index].quantity--;
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCart();
-      }
-    }
-
-    // Initialize cart on page load
-    updateCart();
-  </script>
 </body>
 </html>
-
