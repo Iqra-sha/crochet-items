@@ -50,20 +50,14 @@
     }
 
     .cart-item img {
-      width: 100px;
-      height: auto;
-      max-width: 100%;
-      object-fit: cover;
+      width: 80px;
+      height: 80px;
       border-radius: 8px;
     }
 
     .cart-item-info {
       flex: 1;
       min-width: 200px;
-    }
-
-    .cart-item-info h3 {
-      margin: 0 0 0.5rem 0;
     }
 
     .quantity-controls {
@@ -165,54 +159,9 @@
     </p>
   </footer>
 
-  <script>
-    function displayCart() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const container = document.getElementById('cartContainer');
-      const totalEl = document.getElementById('totalPrice');
-      container.innerHTML = '';
-      let total = 0;
-
-      cart.forEach((item, index) => {
-        const itemEl = document.createElement('div');
-        itemEl.className = 'cart-item';
-        itemEl.innerHTML = `
-          <img src="${item.image}" alt="${item.name}">
-          <div class="cart-item-info">
-            <h3>${item.name}</h3>
-            <p>Price: AED 15</p>
-            <div class="quantity-controls">
-              <button onclick="updateQuantity(${index}, -1)">-</button>
-              <span>${item.quantity}</span>
-              <button onclick="updateQuantity(${index}, 1)">+</button>
-            </div>
-            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-          </div>
-        `;
-        container.appendChild(itemEl);
-        total += item.quantity * 15;
-      });
-
-      totalEl.textContent = `Total: AED ${total}`;
-    }
-
-    function updateQuantity(index, delta) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart[index].quantity += delta;
-      if (cart[index].quantity < 1) cart[index].quantity = 1;
-      localStorage.setItem('cart', JSON.stringify(cart));
-      displayCart();
-    }
-
-    function removeItem(index) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      displayCart();
-    }
-
-    window.onload = displayCart;
-  </script>
+  <!-- Link to the cart.js script -->
+  <script src="cart.js"></script>
 
 </body>
 </html>
+
