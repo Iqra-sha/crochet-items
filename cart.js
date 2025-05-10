@@ -80,3 +80,4 @@ function displayCart() {
 if (window.location.pathname.includes('cart.html')) {
   displayCart();
 }
+
